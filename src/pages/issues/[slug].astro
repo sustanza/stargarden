@@ -1,0 +1,78 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import { Image } from "astro:assets";
+import logoAsset from '../../assets/logo.png'; // Import your site logo
+export const prerender = true;
+
+/** Build‑time enumeration of every /videos/<slug>/ page */
+export async function getStaticPaths() {
+  const issues = await getCollection("issues");
+  return issues.map(({ slug }) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const issue = await getEntry("issues", slug);
+
+if (!issue) throw new Error(`Issue “${slug}” not found`);
+
+const { Content } = await issue.render();
+
+// Construct VideoObject schema if a youtubeId exists
+const videoSchema = issue.data.youtubeId ? {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": issue.data.title,
+  "description": issue.data.description,
+  "thumbnailUrl": `https://img.youtube.com/vi/${issue.data.youtubeId}/hqdefault.jpg`,
+  "uploadDate": issue.data.date.toISOString(),
+  "embedUrl": `https://www.youtube.com/embed/${issue.data.youtubeId}`,
+  "contentUrl": `https://www.youtube.com/watch?v=${issue.data.youtubeId}`,
+  "url": Astro.url.href,
+  "publisher": {
+    "@type": "Organization",
+    "name": "CBH Reviews",
+    "logo": {
+      "@type": "ImageObject",
+      "url": new URL(logoAsset.src, Astro.site).href,
+      "width": logoAsset.width,
+      "height": logoAsset.height
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": Astro.url.href
+ }
+} : null;
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout seo={{ title: issue.data.title, description: issue.data.description }}>
+  {videoSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
+  )}
+  <article class="prose lg:prose-xl mx-auto p-4">
+    {issue.data.youtubeId ? (
+      <div class="w-full aspect-video mb-8"> 
+        <iframe
+          class="w-full h-full" 
+          src={`https://www.youtube.com/embed/${issue.data.youtubeId}`} 
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen
+        ></iframe>
+      </div>
+    ) : (
+      <Image 
+        src={issue.data.cover}
+        alt={issue.data.title}
+        width={560}
+        height={315}
+        class="mx-auto my-8 rounded-lg shadow-md"
+      />
+    )}
+    
+    <Content />
+
+  </article>
+</Layout>

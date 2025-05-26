@@ -1,0 +1,41 @@
+---
+import Landing from '../components/Landing.astro';
+import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import { getCollection } from 'astro:content';
+const issues = await getCollection('issues');
+---
+
+<Layout>
+	<Landing />
+
+    <!-- Featured Articles Section -->
+    <section class="container mx-auto px-4 py-8">
+		<h2 class="text-2xl font-semibold mb-6">Latest Issues</h2>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+		  {issues
+			.sort((a, b) => b.data.date - a.data.date)
+			.slice(0, 9)
+			.map(v => (
+			  <a href={`/issues/${v.slug}/`} class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+				<figure>
+				  <Image 
+					src={v.data.cover}
+					alt={v.data.title}
+					width={560}
+					height={315}
+					class="w-full h-auto object-cover"
+				  />
+				</figure>
+				<div class="card-body">
+				  <h2 class="card-title">{v.data.title}</h2>
+				  <p class="text-sm text-base-content/70">{v.data.date.toLocaleDateString()}</p>
+				</div>
+			  </a>
+			))}
+		</div>
+		<div class="flex justify-center mt-8">
+		  <a href="/issues" class="btn btn-primary">See more</a>
+		</div>
+	  </section>
+</Layout>
