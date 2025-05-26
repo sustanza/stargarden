@@ -37,19 +37,19 @@ const seoConfig = {
       {...seoConfig}
       title={seoConfig.title}
       description={seoConfig.description ??
-        "A practical, evidence‑based timeline of issues for CBH Homes buyers"}
-      titleTemplate="%s – CBH Reviews"
-      titleDefault="CBH Reviews – Independent homeowner feedback"
+        "StarGarden – a customizable Astro theme"}
+      titleTemplate="%s – StarGarden"
+      titleDefault="StarGarden Theme"
     />
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: "CBH Reviews",
+        name: "StarGarden",
         url: Astro.site,
         logo: new URL(logo.src, Astro.site).href,
-        sameAs: ["https://www.youtube.com/@CBHReviews"],
+        sameAs: ["https://www.youtube.com/@StarGarden"],
       })}
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -98,13 +98,13 @@ const seoConfig = {
               <a href="/" class="flex items-center gap-2">
                 <Image
                   src={logo}
-                  alt="CBHReviews logo"
+                  alt="StarGarden logo"
                   width={150}
                   height={40}
                   class="h-8 w-auto"
                 />
                 <!-- optional text next to logo -->
-                <!-- <span class="text-xl normal-case">CBH Reviews</span> -->
+                <!-- <span class="text-xl normal-case">StarGarden</span> -->
               </a>
             </div>
           </nav>
@@ -143,7 +143,7 @@ const seoConfig = {
           <a href="/" class="flex items-center gap-2">
             <Image
               src={logo}
-              alt="CBHReviews logo"
+              alt="StarGarden logo"
               width={150}
               height={40}
               class="h-8 w-auto lg:h-10"
@@ -187,8 +187,8 @@ const seoConfig = {
         <div class="grid grid-flow-col gap-4">
           <!-- YouTube -->
           <a
-            href="https://www.youtube.com/@CBHReviews"
-            aria-label="CBHReviews YouTube"
+            href="https://www.youtube.com/@StarGarden"
+            aria-label="StarGarden YouTube"
             target="_blank"
             rel="noopener"
           >
@@ -206,8 +206,8 @@ const seoConfig = {
           </a>
           <!-- Email icon link -->
           <a
-            href="mailto:homeowner@cbhreviews.com"
-            aria-label="Email CBHReviews"
+            href="mailto:info@stargarden.com"
+            aria-label="Email StarGarden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -239,7 +239,7 @@ const seoConfig = {
       </nav>
       <aside>
         <p>
-          Copyright © {new Date().getFullYear()} – All rights reserved by CBHReviews.
+          Copyright © {new Date().getFullYear()} – All rights reserved by StarGarden.
         </p>
       </aside>
     </footer>

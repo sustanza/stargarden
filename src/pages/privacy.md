@@ -48,7 +48,7 @@ Some pages embed YouTube videos or other third‑party assets. Interacting with 
 
 - **Block cookies** in your browser—core content will still load  
 - Use browsers/extensions that send **Do Not Track** or **Global Privacy Control** signals; the Site honors them  
-- **Request access or deletion** of any data we may hold (rare) by emailing **homeowner@cbhreviews.com**
+- **Request access or deletion** of any data we may hold (rare) by emailing **info@stargarden.com**
 
 ---
 
@@ -72,4 +72,4 @@ We may update this policy to reflect operational or legal changes. Material upda
 
 ## 9. Contact
 
-Questions? Email **homeowner@cbhreviews.com**
+Questions? Email **info@stargarden.com**

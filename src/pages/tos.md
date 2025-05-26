@@ -82,5 +82,5 @@ We may update these Terms at any time.  Continued use of the Site after changes 
 
 ## 11. Contact
 
-Questions about these Terms?  
-📧 **homeowner@cbhreviews.com**
+Questions about these Terms?
+📧 **info@stargarden.com**
