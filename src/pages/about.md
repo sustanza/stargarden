@@ -31,9 +31,9 @@ This site is brand‑new and very much a side‑project. I post updates when chi
 I make every effort to be accurate, but **no guarantee** is made that every detail is up‑to‑the‑minute or error‑free. If you spot something off, feel free to let me know and I’ll correct it as soon as I can.
 
 ## Contact
-Questions, similar experiences, or professional insight?  
-📧 **homeowner@cbhreviews.com**
+Questions or feedback?
+📧 **info@stargarden.com**
 
 ---
 
-© {new Date().getFullYear()} CBHReviews — All rights reserved.
+© {new Date().getFullYear()} StarGarden — All rights reserved.
