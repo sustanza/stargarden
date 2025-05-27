@@ -1,9 +1,9 @@
 ---
 title: About
+cover: '../assets/about.png'
 layout: '../layouts/Markdown.astro'
----
 
-![A group of people collaborating at a table, stock photo from Unsplash](https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80)
+---
 
 # About This Theme
 
