@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
-import { Image } from "astro:assets";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 import logo from "../assets/logo.svg";
 
 import { SEO } from "astro-seo";
@@ -61,176 +62,13 @@ const seoConfig = {
   <body
     class="bg-base-100 text-base-content min-h-screen flex flex-col overflow-x-hidden"
   >
-    <!-- Site navbar -->
-    <header class="shadow-sm bg-base-100">
-      <!-- ********** Mobile (< lg): drawer & navbar ********** -->
-      <div class="drawer lg:hidden">
-        <!-- Hidden checkbox toggles the drawer -->
-        <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
-
-        <div class="drawer-content flex flex-col">
-          <nav class="navbar bg-base-100 w-full px-4">
-            <!-- Hamburger icon on the left -->
-            <div class="flex-none">
-              <label
-                for="nav-drawer"
-                aria-label="Open sidebar"
-                class="btn btn-ghost btn-square"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-              </label>
-            </div>
-
-            <!-- Logo pinned to the left -->
-            <div class="mx-2 flex-1 px-2">
-              <a href="/" class="flex items-center gap-2">
-                <Image
-                  src={logo}
-                  alt="StarGarden logo"
-                  class="h-16 w-auto"
-                />
-                <!-- optional text next to logo -->
-                <span class="text-xl font-bold">Stargarden</span>
-              </a>
-            </div>
-          </nav>
-        </div>
-
-        <!-- Slide‑out sidebar -->
-        <div class="drawer-side">
-          <label
-            for="nav-drawer"
-            class="drawer-overlay"
-            aria-label="Close sidebar"></label>
-          <ul class="menu p-4 w-80 bg-base-100 min-h-full">
-            <li>
-              <a href="/posts" class="normal-case font-bold text-xl">Blog</a>
-            </li>
-            <li>
-              <a href="/about" class="normal-case font-bold text-xl">About</a>
-            </li>
-            <li>
-              <a href="/faq" class="normal-case font-bold text-xl">FAQ</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- ********** Desktop (≥ lg): standard navbar ********** -->
-      <nav
-        class="navbar hidden lg:flex w-full bg-base-100"
-        style="--navbar-padding:0;"
-      >
-        <div class="navbar-start">
-          <a href="/" class="flex items-center gap-2">
-            <Image
-              src={logo}
-              alt="StarGarden logo"
-              class="h-18 w-auto"
-            />
-            <span class="text-xl font-bold">Stargarden</span>
-          </a>
-        </div>
-        <div class="navbar-end">
-          <ul class="menu menu-horizontal gap-2">
-            <li>
-              <a href="/posts" class="normal-case font-bold text-lg">Blog</a>
-            </li>
-            <li>
-              <a href="/about" class="normal-case font-bold text-lg">About</a>
-            </li>
-            <li>
-              <a href="/faq" class="normal-case font-bold text-lg">FAQ</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <Navbar />
 
     <!-- Main page content -->
     <main class="flex-1 container mx-auto px-4 py-8">
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer
-      class="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10"
-    >
-      <nav class="grid grid-flow-col gap-4">
-        <a href="/privacy" class="link link-hover">Privacy&nbsp;Policy</a>
-        <a href="/tos" class="link link-hover">TOS</a>
-      </nav>
-      <nav>
-        <div class="grid grid-flow-col gap-4">
-          <!-- YouTube -->
-          <a
-            href="https://www.youtube.com/@astrodotbuild"
-            aria-label="Astro YouTube"
-            target="_blank"
-            rel="noopener"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              class="fill-current"
-            >
-              <path
-                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
-              ></path>
-            </svg>
-          </a>
-          <!-- Email icon link -->
-          <a
-            href="mailto:example@astro.build"
-            aria-label="Email Astro"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              class="fill-current"
-            >
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2"
-                fill="none"
-              >
-                <rect
-                  width="20"
-                  height="16"
-                  x="2"
-                  y="4"
-                  rx="2"
-                  stroke="currentColor"></rect>
-                <path
-                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
-                  stroke="currentColor"></path>
-              </g>
-            </svg>
-          </a>
-        </div>
-      </nav>
-      <aside>
-        <p>
-          Copyright © {new Date().getFullYear()} – All rights reserved by StarGarden.
-        </p>
-      </aside>
-    </footer>
+    <Footer />
   </body>
 </html>
