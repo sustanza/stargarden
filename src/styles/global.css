@@ -1,10 +1,5 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 @plugin "daisyui" {
-    themes: corporate --default;
-    --color-primary:  #1F4E79;
-    --color-secondary:#2F8F5B;
-    --color-accent:   #F6A728;
-    --color-base-100:#F5F5F5;
-    --color-base-content:#1E293B;
-  }
+  themes: corporate --default, business --prefersdark;
+}
