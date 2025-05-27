@@ -8,47 +8,44 @@ layout: "../layouts/Markdown.astro"
 # Privacy Policy
 _Last updated: {frontmatter.date}_
 
-This is a demo Privacy Policy included with the Stargarden Theme for Astro. Replace or edit this file to match your own site's privacy practices.
+This Privacy Policy page is provided as a starting template for the Stargarden Astro Theme. Stargarden is open-source, and you should fully customize this policy to reflect your site's privacy practices.
 
 ---
 
-## 1. What We **Do Not** Collect
+## 1. What Is Not Collected
 
-- No user account registration
-- No contact forms or comment boxes
-- No first‑party cookies, pixels, or fingerprinting scripts
-- No sale or rental of visitor data—ever
+This theme, by default, does not:
 
----
-
-## 2. What Is Collected Automatically
-
-This theme does not collect any personal data. If you deploy your site, review your hosting provider's privacy practices and update this policy accordingly.
+- Collect personal information
+- Use cookies or tracking scripts
+- Include user registration or forms
 
 ---
 
-## 3. Embedded Content
+## 2. Automatically Collected Data
 
-If you embed third-party content (like YouTube videos), those platforms may collect data according to their own policies. Update this section as needed for your site.
-
----
-
-## 4. How We Use Limited Data
-
-Describe here how your site uses any data, if applicable. Remove this section if not needed.
+Stargarden does not automatically collect personal data. However, if you host your site publicly, your hosting provider might collect visitor data. Review your hosting provider’s policies and update accordingly.
 
 ---
 
-## 5. Your Choices
+## 3. Embedded Third-Party Content
 
-Describe user privacy choices here, or remove this section if not needed.
-
----
-
-## 6. Contact
-
-Questions? Replace this with your contact info.
+Any embedded content from third-party platforms (e.g., YouTube videos) may collect user data independently. Refer to those platforms' privacy policies for details.
 
 ---
 
-© 2025 Stargarden Theme — All rights reserved.
+## 4. No Warranty or Liability
+
+This privacy policy is provided as an example. The creators of Stargarden assume no responsibility or liability for your site's privacy practices. You are solely responsible for ensuring your site complies with applicable privacy laws and regulations.
+
+---
+
+## 5. Changes to This Policy
+
+You must customize and update this Privacy Policy to reflect the specifics of your website and privacy practices.
+
+---
+
+## 6. Contact Information
+
+For questions about this theme specifically, refer to the project's documentation or repository.

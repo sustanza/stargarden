@@ -2,24 +2,17 @@
 title: About
 cover: '../assets/about.png'
 layout: '../layouts/Markdown.astro'
-
 ---
 
-# About This Theme
+# About Stargarden
 
-This is a demo About page included with the Stargarden Theme for Astro. Replace or edit this file to describe your own project, team, or site purpose.
+Stargarden is a markdown-first Astro theme designed for simplicity and ease of use. It’s built for quick, clean markdown publishing—ideal for personal blogs, documentation, or straightforward content sites.
 
-## What Is Stargarden?
-Stargarden is a customizable Astro theme designed to help you launch content-driven sites quickly. It includes example layouts, demo posts, and a modern design using Tailwind CSS and daisyUI.
+## Built with Tailwind CSS & DaisyUI
+Stargarden was built with Tailwind CSS and DaisyUI, making customization simple and practical. DaisyUI's theming ensures your site looks good without extra effort.
 
-## How to Use
-- Edit or replace this page to introduce your own project or team.
-- Update the logo and images in `src/assets/` as needed.
-- Add or remove sections to fit your needs.
+## Simple and Effective
+The core idea is to keep things minimal and markdown-friendly. Future updates may include convenient features like built-in search and flexible content types, always keeping complexity low.
 
-## Demo Content
-All content in this theme is for demonstration purposes. Be sure to update or remove demo text and images before launching your site.
-
----
-
-© 2025 Stargarden Theme — All rights reserved.
+## Make it Your Own
+Feel free to personalize Stargarden to fit your style and content. This theme is here as a starting point—make it uniquely yours.

@@ -3,8 +3,6 @@ import Landing from '../components/Landing.astro';
 import Layout from '../layouts/Layout.astro';
 import { Image } from "astro:assets";
 import { getCollection } from 'astro:content';
-// NOTE: This theme template does not include an 'issues' collection by default.
-// For demonstration, you can use the 'posts' collection as your main content source.
 const posts = await getCollection('posts');
 ---
 

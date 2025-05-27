@@ -8,74 +8,46 @@ year: "2025"
 # Terms of Service
 _Last updated: {frontmatter.lastUpdated}_
 
-This is a demo Terms of Service page included with the Stargarden Theme for Astro. Replace or edit this file to match your own site's terms and policies.
+This Terms of Service page is provided as a demonstration for the Stargarden Astro Theme, which is open-source and free to use. You should customize this page to fit your site's specific terms and conditions.
 
 ---
 
 ## 1. Informational Purpose Only
 
-All content in this theme is for demonstration purposes. Replace this section with your own terms and conditions.
+This page and all included sections are provided solely as a reference or starting point. You should replace this content entirely with your own terms and conditions before publishing your site.
 
 ---
 
-## 2. Accuracy & Updates
+## 2. No Warranty
 
-Update this section to describe your site's accuracy and update policy.
-
----
-
-## 3. Intellectual Property
-
-Describe your intellectual property policy here.
+The Stargarden Theme is provided "as is" without any warranties, express or implied, including but not limited to warranties of merchantability or fitness for a particular purpose.
 
 ---
 
-## 4. User Comments & Submissions
+## 3. Limitation of Liability
 
-Describe your policy for user comments and submissions here, or remove this section if not needed.
+In no event shall the creators or maintainers of Stargarden be liable for any damages arising from the use or inability to use this theme, including but not limited to direct, indirect, incidental, or consequential damages.
+
+---
+
+## 4. Intellectual Property
+
+Stargarden is an open-source project. You may use, modify, and distribute it freely, subject to the project's license terms. Ensure you review and comply with the license provided with the theme.
 
 ---
 
 ## 5. External Links & Embedded Media
 
-Describe your policy for external links and embedded media here.
+This theme may include links or embedded media from third-party websites. The theme's creators do not control these external resources and are not responsible for their content or practices.
 
 ---
 
-## 6. Warranty Disclaimer
+## 6. Changes to These Terms
 
-Describe your warranty disclaimer here.
-
----
-
-## 7. Limitation of Liability
-
-Describe your limitation of liability here.
+You are responsible for customizing and updating this Terms of Service page to reflect any changes specific to your own use or implementation of this theme.
 
 ---
 
-## 8. Indemnification
+## 7. Contact
 
-Describe your indemnification policy here.
-
----
-
-## 9. Governing Law
-
-Describe your governing law here.
-
----
-
-## 10. Changes to These Terms
-
-Describe your policy for changes to these terms here.
-
----
-
-## 11. Contact
-
-Questions? Replace this with your contact info.
-
----
-
-© 2025 Stargarden Theme — All rights reserved.
+For issues specific to this theme, please refer to the project's repository or documentation.

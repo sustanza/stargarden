@@ -5,20 +5,11 @@ layout: '../layouts/Markdown.astro'
 
 # Frequently Asked Questions
 
-This is a demo FAQ page included with the Stargarden Theme for Astro. Replace or edit this file to answer common questions about your own project or site.
+## How do I get started?
+Simply edit or replace the markdown content to fit your needs. Stargarden is markdown-first, so your content stays clean, easy, and readable.
 
-## How do I use this theme?
-Edit or replace the demo content in the `src/pages/`, `src/content/`, and `src/assets/` folders. Update images, text, and sections to fit your needs.
+## Is Stargarden ready for production?
+Stargarden is built as a straightforward starting point. Always customize and test thoroughly before deploying your site live.
 
-## Can I use my own images?
-Yes! Replace the Unsplash demo images with your own images by updating the `cover` fields in your content files and swapping out images in the layout or components.
-
-## Is this theme production-ready?
-This theme is a starting point. Review, customize, and test thoroughly before launching your own site.
-
-## Where can I get help?
-Check the Astro and daisyUI documentation for help with customization. For theme-specific questions, refer to the README or open an issue in your own project repository.
-
----
-
-© 2025 Stargarden Theme — All rights reserved.
+## Need more help?
+Check out Astro and DaisyUI documentation for customization tips. For anything else specific to Stargarden, the project's README is the best place to start. If there are issues or questions, feel free to open an issue on the GitHub repository.
