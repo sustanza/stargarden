@@ -18,7 +18,7 @@ Black holes are among the most mysterious and powerful objects in the cosmos. Le
 
 ## What Is a Black Hole?
 
-A black hole is a region in space where gravity is so strong that nothing—not even light—can escape. They form when massive stars collapse at the end of their life cycles.
+A black hole is a region in space where gravity is so strong that nothing—not even light—can escape. Stellar-mass black holes form when massive stars collapse at the end of their life cycles. Supermassive black holes grow over time in the centers of galaxies through mergers and accretion.
 
 ## Types of Black Holes
 
