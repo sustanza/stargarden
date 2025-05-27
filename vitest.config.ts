@@ -1,9 +1,9 @@
 import { getViteConfig } from 'astro/config';
 
 export default getViteConfig(
-  {  },
+  {},
   {
-    site: 'https://example.com/',
+    site: 'https://astro.build',
     trailingSlash: 'always',
   },
 );

@@ -2,6 +2,7 @@
 title: "Blog Posts"
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { Image } from "astro:assets";
 const posts = await getCollection('posts');
 ---
 
@@ -11,13 +12,13 @@ const posts = await getCollection('posts');
       .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
       .map(v => (
         <a href={`/posts/${v.slug}/`} class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-          <img 
-            src={v.data.cover.replace('https://picsum.photos', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80')}
-            alt={v.data.title}
-            width={560}
-            height={315}
-            class="w-full h-auto object-cover"
-          />
+              <Image 
+                src={v.data.cover}
+                alt={v.data.title}
+                width={560}
+                height={315}
+                class="w-full h-auto object-cover"
+              />
           <div class="card-body">
             <h2 class="card-title">{v.data.title}</h2>
             <p class="text-sm text-base-content/70">{new Date(v.data.date).toLocaleDateString()}</p>

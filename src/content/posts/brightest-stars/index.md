@@ -3,7 +3,7 @@ title: The Brightest Stars in the Night Sky
 slug: brightest-stars
 description: Discover the most luminous stars you can see from Earth and what makes them shine so bright.
 date: 2025-05-02
-cover: https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=400&q=80
+cover: ./cover.png
 tags:
   - stars
   - astronomy

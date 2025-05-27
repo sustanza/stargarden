@@ -3,7 +3,7 @@ title: 'Black Holes: Mysteries of the Universe'
 slug: black-holes
 description: What are black holes, and why do they fascinate astronomers?
 date: 2025-05-04
-cover: https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=400&q=80
+cover: ./cover.png
 tags:
   - black holes
   - astronomy

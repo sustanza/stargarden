@@ -22,8 +22,6 @@
     "daisyui": "^5.0.28",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-        "rehype-wrap": "^1.1.0",
-        "medium-zoom": "^1.1.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3"
   },

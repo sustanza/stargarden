@@ -9,9 +9,8 @@ export const collections = {
     schema: ({ image }) =>
       z.object({
         title: z.string(),
-        slug: z.string().regex(/^[a-z0-9-]+$/).optional(),
         description: z.string().max(160),
-        cover: z.string(),
+        cover: image(),
         date: z.date(),
         tags: z.array(z.string()).default([]),
         draft: z.boolean().optional(),

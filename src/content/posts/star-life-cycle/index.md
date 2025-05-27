@@ -3,7 +3,7 @@ title: The Life Cycle of a Star
 slug: star-life-cycle
 description: From nebula to supernova, a journey through the stages of stellar evolution.
 date: 2025-05-01
-cover: https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=400&q=80
+cover: ./cover.png
 tags: ["stellar evolution", "astronomy", "science"]
 ---
 

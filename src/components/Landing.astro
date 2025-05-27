@@ -1,5 +1,6 @@
 ---  
-import { Image } from "astro:assets";  
+import { Image } from "astro:assets";
+import hero from '../assets/landing-hero.svg';  
 ---  
   
 <section class="hero py-12 lg:py-20">  
@@ -16,16 +17,13 @@ import { Image } from "astro:assets";
         Use this theme as a starting point for your own blog, documentation, or content site. All content and pages are for demonstration—replace them to make it your own!
       </p>
       <div class="mt-6">  
-        <a href="/posts" class="btn btn-primary btn-lg">View Demo Posts</a>  
+        <a href="/posts" class="btn btn-primary btn-lg">View Posts</a>  
       </div>  
     </div>  
   
     <!-- Image -->  
-    <div class="lg:w-1/2 grid grid-cols-2 gap-4">  
-      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Starry night sky, stock photo from Unsplash" class="rounded-xl shadow-md w-full object-cover" />  
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Mountain landscape, stock photo from Unsplash" class="rounded-xl shadow-md w-full object-cover" />  
-      <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80" alt="Milky Way, stock photo from Unsplash" class="rounded-xl shadow-md w-full object-cover" />  
-      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="Constellations, stock photo from Unsplash" class="rounded-xl shadow-md w-full object-cover" />  
+    <div class="lg:w-1/2">  
+      <Image src={hero} alt="CBHReviews logo over blueprint hero" class="rounded-xl shadow-md w-full object-cover" />  
     </div>  
   </div>  
 </section>

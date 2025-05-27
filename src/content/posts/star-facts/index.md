@@ -3,7 +3,7 @@ title: 10 Fun Facts About Stars
 slug: star-facts
 description: Surprising and fun facts about the stars above us.
 date: 2025-05-05
-cover: https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80
+cover: ./cover.png
 tags:
   - stars
   - facts
