@@ -10,3 +10,8 @@ npm run dev
 ```
 
 The theme includes example pages and a basic layout. Customize the content under `src/` to make it your own.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
