@@ -1,6 +1,5 @@
 ---  
 import { Image } from "astro:assets";  
-import hero from '../assets/landing-hero.svg';  
 ---  
   
 <section class="hero py-12 lg:py-20">  
@@ -8,24 +7,25 @@ import hero from '../assets/landing-hero.svg';
     <!-- Text -->  
     <div class="lg:w-1/2 flex flex-col justify-center text-center lg:text-left">  
       <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-        Welcome to the StarGarden Theme
+        Stargarden Theme for Astro
       </h1>
       <h2 class="mt-3 text-xl md:text-2xl font-semibold text-secondary">  
-        Uneven floors, creaks, vibrations, exposed nails, sleepless nights—discover what isn’t visible during a walkthrough or even a thorough home inspection.  
+        A modern, content-focused starter theme for Astro, styled with Tailwind CSS and daisyUI.  
       </h2>  
       <p class="mt-4 text-base md:text-lg max-w-[600px] mx-auto lg:mx-0">
-        Use this Astro theme as a starting point for your own site.
+        Use this theme as a starting point for your own blog, documentation, or content site. All content and pages are for demonstration—replace them to make it your own!
       </p>
-  
       <div class="mt-6">  
-        <a href="/timeline" class="btn btn-secondary btn-lg">View the timeline</a>  
+        <a href="/posts" class="btn btn-primary btn-lg">View Demo Posts</a>  
       </div>  
     </div>  
   
     <!-- Image -->  
-    <div class="lg:w-1/2">  
-      
-      <Image src={hero} alt="StarGarden logo over blueprint hero" class="rounded-xl shadow-md w-full object-cover" />
+    <div class="lg:w-1/2 grid grid-cols-2 gap-4">  
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Starry night sky, stock photo from Unsplash" class="rounded-xl shadow-md w-full object-cover" />  
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Mountain landscape, stock photo from Unsplash" class="rounded-xl shadow-md w-full object-cover" />  
+      <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80" alt="Milky Way, stock photo from Unsplash" class="rounded-xl shadow-md w-full object-cover" />  
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="Constellations, stock photo from Unsplash" class="rounded-xl shadow-md w-full object-cover" />  
     </div>  
   </div>  
 </section>

@@ -1,13 +1,24 @@
 ---
-title: Frequently Asked Questions
-description: Answers to common questions about CBH Homes and the 2-10 HBW warranty.
+title: FAQ
 layout: '../layouts/Markdown.astro'
 ---
 
-# FAQs
+# Frequently Asked Questions
 
-## Does the builder’s warranty pay for lodging, meals, or moving costs if we have to leave during repairs?
+This is a demo FAQ page included with the Stargarden Theme for Astro. Replace or edit this file to answer common questions about your own project or site.
 
-**Short answer:** No—neither the builder nor the third‑party warranty company pays these costs.
+## How do I use this theme?
+Edit or replace the demo content in the `src/pages/`, `src/content/`, and `src/assets/` folders. Update images, text, and sections to fit your needs.
 
-The warranty booklet’s exclusions clearly state that the warranty does **not** cover “costs of shelter, transportation, food, moving, storage, or other incidental expenses related to relocation during repair, or any other costs due to loss of use, inconvenience, or annoyance.” In other words, if a repair forces you to empty a room, store furniture, stay in a hotel, or travel farther to and from work, those expenses fall entirely on the homeowner—even when the underlying defect is acknowledged and repaired by the builder.
+## Can I use my own images?
+Yes! Replace the Unsplash demo images with your own images by updating the `cover` fields in your content files and swapping out images in the layout or components.
+
+## Is this theme production-ready?
+This theme is a starting point. Review, customize, and test thoroughly before launching your own site.
+
+## Where can I get help?
+Check the Astro and daisyUI documentation for help with customization. For theme-specific questions, refer to the README or open an issue in your own project repository.
+
+---
+
+© 2025 Stargarden Theme — All rights reserved.

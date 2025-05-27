@@ -1,0 +1,30 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map(({ slug }) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const post = await getEntry("posts", slug);
+if (!post) throw new Error(`Post “${slug}” not found`);
+const { Content } = await post.render();
+---
+
+<Layout seo={{ title: post.data.title, description: post.data.description }}>
+  <article class="prose max-w-2xl mx-auto">
+    <h1>{post.data.title}</h1>
+    <p class="text-sm text-base-content/70 mb-4">{post.data.date.toLocaleDateString()}</p>
+    <img src={post.data.cover.replace('https://picsum.photos', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80')} alt={post.data.title} class="w-full h-auto rounded mb-6" />
+    {Array.isArray(post.data.tags) && post.data.tags.length > 0 && (
+      <div class="mt-8 flex flex-wrap gap-2">
+        {post.data.tags.map((tag: string) => (
+          <span class="badge badge-primary badge-outline">{tag}</span>
+        ))}
+      </div>
+    )}
+  </article>
+</Layout>

@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 
 import { SEO } from "astro-seo";
 
@@ -99,12 +99,10 @@ const seoConfig = {
                 <Image
                   src={logo}
                   alt="StarGarden logo"
-                  width={150}
-                  height={40}
-                  class="h-8 w-auto"
+                  class="h-16 w-auto"
                 />
                 <!-- optional text next to logo -->
-                <!-- <span class="text-xl normal-case">StarGarden</span> -->
+                <span class="text-xl font-bold">Stargarden</span>
               </a>
             </div>
           </nav>
@@ -118,11 +116,7 @@ const seoConfig = {
             aria-label="Close sidebar"></label>
           <ul class="menu p-4 w-80 bg-base-100 min-h-full">
             <li>
-              <a href="/issues" class="normal-case font-bold text-xl">Issues</a>
-            </li>
-            <li>
-              <a href="/timeline" class="normal-case font-bold text-xl"
-                >Timeline</a>
+              <a href="/posts" class="normal-case font-bold text-xl">Blog</a>
             </li>
             <li>
               <a href="/about" class="normal-case font-bold text-xl">About</a>
@@ -144,20 +138,15 @@ const seoConfig = {
             <Image
               src={logo}
               alt="StarGarden logo"
-              width={150}
-              height={40}
-              class="h-8 w-auto lg:h-10"
+              class="h-18 w-auto"
             />
+            <span class="text-xl font-bold">Stargarden</span>
           </a>
         </div>
         <div class="navbar-center">
           <ul class="menu menu-horizontal gap-2">
             <li>
-              <a href="/issues" class="normal-case font-bold text-lg">Issues</a>
-            </li>
-            <li>
-              <a href="/timeline" class="normal-case font-bold text-lg"
-                >Timeline</a>
+              <a href="/posts" class="normal-case font-bold text-lg">Blog</a>
             </li>
             <li>
               <a href="/about" class="normal-case font-bold text-lg">About</a>

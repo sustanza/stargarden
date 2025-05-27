@@ -1,6 +1,6 @@
 # StarGarden Theme
 
-StarGarden is a simple [Astro](https://astro.build/) theme built from the original CBHReviews site. It showcases how to list content, render Markdown pages, and use Tailwind with DaisyUI.
+StarGarden is a simple [Astro](https://astro.build/) theme. It showcases how to list content, render Markdown pages, and use Tailwind with DaisyUI.
 
 ## Getting Started
 
