@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import aboutPng from '../assets/about.png';
+const { frontmatter } = Astro.props;      
+const { center = false } = frontmatter;    
+
+// Map known asset paths to imports
+const assetMap: Record<string, unknown> = {
+  '../assets/about.png': aboutPng,
+};
+
+let coverImg = frontmatter.cover;
+if (coverImg && typeof coverImg === 'string' && assetMap[coverImg as string]) {
+  coverImg = assetMap[coverImg as string];
+}
+---
+
+<Layout seo={{ title: frontmatter.title, description: frontmatter.description }}>
+    <div class="flex flex-col items-center">
+        <h1 class="text-3xl font-bold mb-4">{frontmatter.title}</h1>
+        <p class="text-sm text-gray-500 mb-4">{frontmatter.date}</p>
+        {coverImg && typeof coverImg === 'object' ? (
+            <Image 
+                src={coverImg}
+                alt={frontmatter.title}
+                width={560}
+                height={315}
+                class="mx-auto my-8 rounded-lg shadow-md"
+            />
+        ) : coverImg ? (
+            <img 
+                src={coverImg}
+                alt={frontmatter.title}
+                width={560}
+                height={315}
+                class="mx-auto my-8 rounded-lg shadow-md"
+            />
+        ) : null}
+        <div class={`prose mx-auto ${center ? 'text-center' : ''}`}>
+            <slot />
+        </div>
+    </div>
+</Layout>

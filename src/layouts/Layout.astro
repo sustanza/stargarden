@@ -1,0 +1,74 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import logo from "../assets/logo.svg";
+
+import { SEO } from "astro-seo";
+
+export interface Props {
+  /** Optional granular SEO overrides coming from .astro pages or components */
+  seo?: {
+    title?: string;
+    description?: string;
+  };
+  /** Standard front‑matter fields coming from Markdown/MDX pages */
+  title?: string;
+  description?: string;
+}
+
+// Destructure front‑matter fields as well as the existing `seo` object
+const { seo = {}, title, description } = Astro.props;
+
+/** Merge explicit `seo` overrides with any front‑matter fields.
+ *  Values defined in `seo` win over front‑matter, preserving backward compatibility.
+ */
+const seoConfig = {
+  ...seo,
+  title: seo.title ?? title,
+  description: seo.description ?? description,
+};
+---
+
+<!doctype html>
+<html lang="en" data-theme="corporate">
+  <head>
+    <meta charset="utf-8" />
+    <SEO
+      {...seoConfig}
+      title={seoConfig.title}
+      description={seoConfig.description ??
+        "StarGarden – a customizable Astro theme"}
+      titleTemplate="%s – StarGarden"
+      titleDefault="StarGarden Theme"
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "StarGarden",
+        url: Astro.site,
+        logo: new URL(logo.src, Astro.site).href,
+        sameAs: ["https://www.youtube.com/@StarGarden"],
+      })}
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+
+  <body
+    class="bg-base-100 text-base-content min-h-screen flex flex-col overflow-x-hidden"
+  >
+    <Navbar />
+
+    <!-- Main page content -->
+    <main class="flex-1 container mx-auto px-4 py-8">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

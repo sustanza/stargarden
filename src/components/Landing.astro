@@ -1,0 +1,29 @@
+---  
+import { Image } from "astro:assets";
+import hero from '../assets/landing-hero.svg';  
+---  
+  
+<section class="hero py-12 lg:py-20">  
+  <div class="hero-content container mx-auto flex flex-col-reverse lg:flex-row items-center px-4 gap-8">  
+    <!-- Text -->  
+    <div class="lg:w-1/2 flex flex-col justify-center text-center lg:text-left">  
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        Stargarden Theme for Astro
+      </h1>
+      <h2 class="mt-3 text-xl md:text-2xl font-semibold text-secondary">  
+        A modern, content-focused starter theme for Astro, styled with Tailwind CSS and daisyUI.  
+      </h2>  
+      <p class="mt-4 text-base md:text-lg max-w-[600px] mx-auto lg:mx-0">
+        Use this theme as a starting point for your own blog, documentation, or content site. All content and pages are for demonstration—replace them to make it your own!
+      </p>
+      <div class="mt-6">  
+        <a href="/posts" class="btn btn-primary btn-lg">View Posts</a>  
+      </div>  
+    </div>  
+  
+    <!-- Image -->  
+    <div class="lg:w-1/2">  
+      <Image src={hero} alt="StarGarden hero illustration" class="rounded-xl shadow-md w-full object-cover" />  
+    </div>  
+  </div>  
+</section>
