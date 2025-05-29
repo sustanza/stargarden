@@ -3,8 +3,6 @@ title: FAQ
 layout: '../layouts/Markdown.astro'
 ---
 
-# Frequently Asked Questions
-
 ## How do I get started?
 Simply edit or replace the markdown content to fit your needs. Stargarden is markdown-first, so your content stays clean, easy, and readable.
 
