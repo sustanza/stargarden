@@ -3,3 +3,67 @@
 @plugin "daisyui" {
   themes: corporate --default, business --prefersdark;
 }
+
+/* Pagefind UI Overrides */
+  .pagefind-ui {
+    --pagefind-ui-scale: 0.75;
+    --pagefind-ui-background: var(--color-base-100);
+    --pagefind-ui-primary: var(--color-primary);
+    --pagefind-ui-text: var(--color-base-content);
+    --pagefind-ui-border: var(--color-base-content);
+    --pagefind-ui-border-width: var(--border);
+    --pagefind-ui-border-radius: var(--radius-box);
+    --pagefind-ui-font: inherit;
+
+    width: 50%;
+  }
+
+  .pagefind-ui.yellow {
+    --pagefind-ui-background: var(--color-warning);
+  }
+
+  .pagefind-ui.red {
+    --pagefind-ui-background: var(--color-error);
+    width: 100%;
+  }
+
+  .pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 0.5rem;           /* leave a small gap so the input's bottom border remains visible */
+    z-index: 9999;
+    padding: 0 2em 1em;
+    overflow-y: auto;
+    box-shadow:
+      0 10px 10px -5px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: var(--pagefind-ui-border-radius);
+    border-bottom-left-radius: var(--pagefind-ui-border-radius);
+    background-color: var(--pagefind-ui-background);
+  }
+
+  .pagefind-ui .pagefind-ui__result-link {
+    color: var(--pagefind-ui-primary);
+  }
+
+  .pagefind-ui .pagefind-ui__result-excerpt {
+    color: var(--pagefind-ui-text);
+  }
+
+  /* Match Pagefind search box with current DaisyUI input style (input-bordered removed since v5) */
+  .pagefind-ui .pagefind-ui__search-input {
+    @apply input w-full border-base-300;
+  }
+
+  /* Ensure Pagefind UI takes full width when displayed inside the mobile search modal */
+.modal .pagefind-ui {
+  width: 100% !important;          /* Override the default 50 % */
+}
+
+.modal .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+  width: 100% !important;          /* Search results span the modal width */
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: 0 !important;
+}

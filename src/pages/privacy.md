@@ -5,9 +5,6 @@ date: "2025-04-28"
 layout: "../layouts/Markdown.astro"
 ---
 
-# Privacy Policy
-_Last updated: {frontmatter.date}_
-
 This Privacy Policy page is provided as a starting template for the Stargarden Astro Theme. Stargarden is open-source, and you should fully customize this policy to reflect your site's privacy practices.
 
 ---

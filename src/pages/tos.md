@@ -4,9 +4,6 @@ layout: '../layouts/Markdown.astro'
 date: "2025-04-28"
 ---
 
-# Terms of Service
-_Last updated: {frontmatter.date}_
-
 This Terms of Service page is provided as a demonstration for the Stargarden Astro Theme, which is open-source and free to use. You should customize this page to fit your site's specific terms and conditions.
 
 ---
