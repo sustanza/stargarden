@@ -4,16 +4,22 @@ on:
     branches: [main]
 
 permissions:
-  contents: write          # create tags & releases
-  pull-requests: write     # open the Release PR
+  contents: write             # allow tag + release
+  pull-requests: write        # allow the bot to open/refresh PRs
+  actions: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: googleapis/release-please-action@v4
         with:
-          release-type: node  
+          release-type: node
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}  
 
 
 
