@@ -17,14 +17,19 @@ const { Content } = await post.render();
 <Layout seo={{ title: post.data.title, description: post.data.description }}>
   <article class="prose max-w-2xl mx-auto">
     <h1>{post.data.title}</h1>
-    <p class="text-sm text-base-content/70 mb-4">{post.data.date.toLocaleDateString()}</p>
-          <Image 
-        src={post.data.cover}
-        alt={post.data.title}
-        width={560}
-        height={315}
-        class="mx-auto my-8 rounded-lg shadow-md"
-      />
-        <Content />
+    <p class="text-sm text-base font-bold mb-4">
+      {post.data.date.toLocaleDateString()}
+    </p>
+    <Image
+      src={post.data.cover}
+      alt={post.data.title}
+      width={560}
+      height={315}
+      class="mx-auto my-8 rounded-lg shadow-md"
+    />
+    <Content />
   </article>
+  <div class="flex justify-center mt-8">
+    <a href="/posts" class="btn btn-primary">Back to all posts</a>
+  </div>
 </Layout>

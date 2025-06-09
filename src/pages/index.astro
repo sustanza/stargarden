@@ -30,7 +30,7 @@ const posts = await getCollection('posts');
 				</figure>
 				<div class="card-body">
 				  <h2 class="card-title">{v.data.title}</h2>
-				  <p class="text-sm text-base-content/70 font-semibold">{new Date(v.data.date).toLocaleDateString()}</p>
+				  <p class="text-sm text-base-content/70 font-bold">{new Date(v.data.date).toLocaleDateString()}</p>
 				</div>
 			  </a>
 			))}
