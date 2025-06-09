@@ -34,6 +34,13 @@ const seoConfig = {
 <html lang="en" data-theme="corporate">
   <head>
     <meta charset="utf-8" />
+    <!-- Persisted theme (dark / light) is applied as early as possible -->
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    </script>
     <SEO
       {...seoConfig}
       title={seoConfig.title}

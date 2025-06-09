@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
 import Search from "astro-pagefind/components/Search";
-import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import ThemeToggle from '../components/ThemeToggle.astro';
 ---
 
 <header class="shadow-sm bg-base-100">
@@ -40,11 +41,7 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
             {/* Magnifying glass icon */}
             <MagnifyingGlassIcon className="h-5 w-5" />
           </button>
-          <label class="swap swap-rotate cursor-pointer">
-            <input type="checkbox" class="theme-controller" value="business" />
-            <SunIcon className="swap-off h-10 w-10" />
-            <MoonIcon className="swap-on h-10 w-10" />
-          </label>
+          <ThemeToggle />
         </div>
       </nav>
       <dialog id="search_modal" class="modal">
@@ -111,11 +108,7 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
         className="pagefind-ui"
         uiOptions={{ showImages: false }}
       />    
-      <label class="swap swap-rotate ml-4 cursor-pointer">
-        <input type="checkbox" class="theme-controller" value="business" />
-        <SunIcon className="swap-off h-10 w-10" />
-        <MoonIcon className="swap-on h-10 w-10" />
-      </label>
+      <ThemeToggle />
     </div>
   </nav>
 </header>

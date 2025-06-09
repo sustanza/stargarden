@@ -1,0 +1,20 @@
+---
+/**
+ * ThemeToggle component for DaisyUI theme switching.
+ * Handles theme persistence, sync, and toggle UI for both mobile and desktop.
+ * @component
+ */
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+---
+<!-- Sync theme-controller checkboxes & persist selection -->
+<script>
+  import "../scripts/themeController.ts";
+</script>
+<!-- DaisyUI theme toggle switch -->
+<label class="swap swap-rotate cursor-pointer lg:ml-2">
+  <input type="checkbox" class="theme-controller" value="business" />
+  <SunIcon className="swap-off lg-6 w-6 lg:h-10 lg:w-10" />
+  <MoonIcon className="swap-on lg-6 w-6 lg:h-10 lg:w-10" />
+</label>
+
+
