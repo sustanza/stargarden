@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
 import Search from "astro-pagefind/components/Search";
-import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import ThemeToggle from '../components/ThemeToggle.astro';
 ---
 
 <header class="shadow-sm bg-base-100">
@@ -40,11 +41,7 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
             {/* Magnifying glass icon */}
             <MagnifyingGlassIcon className="h-5 w-5" />
           </button>
-          <label class="swap swap-rotate cursor-pointer">
-            <input type="checkbox" class="theme-controller" value="business" />
-            <SunIcon className="swap-off h-10 w-10" />
-            <MoonIcon className="swap-on h-10 w-10" />
-          </label>
+          <ThemeToggle />
         </div>
       </nav>
       <dialog id="search_modal" class="modal">
@@ -111,40 +108,7 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
         className="pagefind-ui"
         uiOptions={{ showImages: false }}
       />    
-      <label class="swap swap-rotate ml-4 cursor-pointer">
-        <input type="checkbox" class="theme-controller" value="business" />
-        <SunIcon className="swap-off h-10 w-10" />
-        <MoonIcon className="swap-on h-10 w-10" />
-      </label>
+      <ThemeToggle />
     </div>
   </nav>
 </header>
-
-<!-- Sync theme-controller checkboxes & persist selection -->
-<script is:inline>
-  // Run after DOM is ready
-  document.addEventListener('DOMContentLoaded', () => {
-    const controllers = document.querySelectorAll('.theme-controller');
-
-    // 1. Initialise from localStorage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      controllers.forEach(cb => (cb.checked = cb.value === savedTheme));
-    }
-
-    // 2. Persist and broadcast on change
-    controllers.forEach(cb => {
-      cb.addEventListener('change', () => {
-        const newTheme = cb.checked ? cb.value : 'corporate'; // default light theme
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-
-        // keep every controller in sync
-        controllers.forEach(other => {
-          other.checked = other.value === newTheme;
-        });
-      });
-    });
-  });
-</script>
