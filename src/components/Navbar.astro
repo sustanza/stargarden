@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logo from '../assets/logo.svg';
+import logo from "../assets/logo.svg";
 import Search from "astro-pagefind/components/Search";
 import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 ---
@@ -12,7 +12,7 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
     <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
 
     <div class="drawer-content flex flex-col">
-      <nav class="navbar bg-base-100 w-full px-0 lg:px-4 relative px-2">
+      <nav class="navbar bg-base-100 w-full lg:px-4 relative px-2">
         <!-- Hamburger icon on the left -->
         <div class="flex-none">
           <label
@@ -20,23 +20,25 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
             aria-label="Open sidebar"
             class="btn btn-ghost btn-square"
           >
-            <Bars3Icon class="h-5 w-5" />
+            <Bars3Icon className="h-5 w-5" />
           </label>
         </div>
+
+        <!-- Logo centered absolutely -->
         <a
           href="/"
           class="absolute left-1/2 -translate-x-1/2 flex items-center"
         >
           <Image src={logo} alt="Stargarden logo" class="h-18 w-auto" />
         </a>
-
-        <div class="flex-none ml-auto flex items-center gap-2">
+        <div class="flex-none ml-auto">
           <button
             aria-label="Open search"
             class="btn btn-ghost btn-square"
             onclick="search_modal.showModal()"
           >
-            <MagnifyingGlassIcon class="h-5 w-5" />
+            {/* Magnifying glass icon */}
+            <MagnifyingGlassIcon className="h-5 w-5" />
           </button>
           <label class="swap swap-rotate cursor-pointer">
             <input type="checkbox" class="theme-controller" value="business" />
@@ -46,13 +48,15 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
         </div>
       </nav>
       <dialog id="search_modal" class="modal">
-        <div class="modal-box w-11/12 max-w-2xl h-[90vh] overflow-y-auto flex flex-col relative">
+        <div
+          class="modal-box w-11/12 max-w-2xl h-[90vh] overflow-y-auto flex flex-col relative"
+        >
           <form method="dialog">
             <button
               class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
               aria-label="Close search"
             >
-              <XMarkIcon class="h-5 w-5" />
+              <XMarkIcon className="h-5 w-5" />
             </button>
           </form>
           <div class="relative">
@@ -68,19 +72,14 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
 
     <!-- Slide‑out sidebar -->
     <div class="drawer-side">
-      <label
-        for="nav-drawer"
-        class="drawer-overlay"
-        aria-label="Close sidebar"></label>
+      <label for="nav-drawer" class="drawer-overlay" aria-label="Close sidebar"
+      ></label>
       <ul class="menu p-4 w-80 bg-base-100 min-h-full">
         <li>
-          <a href="/posts" class="normal-case font-bold text-xl">Posts</a>
+          <a href="/posts" class="normal-case font-bold text-xl">Blog</a>
         </li>
         <li>
           <a href="/about" class="normal-case font-bold text-xl">About</a>
-        </li>
-        <li>
-          <a href="/faq" class="normal-case font-bold text-xl">FAQ</a>
         </li>
       </ul>
     </div>
@@ -93,31 +92,25 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
   >
     <div class="navbar-start">
       <a href="/" class="flex items-center gap-2">
-        <Image
-          src={logo}
-          alt="StarGarden logo"
-          class="h-18 w-auto"
-        />
+        <Image src={logo} alt="Stargarden logo" class="h-18 w-auto" />
         <span class="text-xl font-bold">Stargarden</span>
       </a>
     </div>
     <div class="navbar-end">
-      <ul class="menu menu-horizontal flex-nowrap gap-2">
+      <ul class="menu menu-horizontal gap-2">
         <li>
           <a href="/posts" class="normal-case font-bold text-lg">Posts</a>
         </li>
         <li>
           <a href="/about" class="normal-case font-bold text-lg">About</a>
         </li>
-        <li>
-          <a href="/faq" class="normal-case font-bold text-lg">FAQ</a>
-        </li>
       </ul>
+  
       <Search
         id="search"
-        className="pagefind-ui "
+        className="pagefind-ui"
         uiOptions={{ showImages: false }}
-      />
+      />    
       <label class="swap swap-rotate ml-4 cursor-pointer">
         <input type="checkbox" class="theme-controller" value="business" />
         <SunIcon className="swap-off h-10 w-10" />
