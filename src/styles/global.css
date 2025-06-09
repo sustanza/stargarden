@@ -10,7 +10,7 @@
     --pagefind-ui-background: var(--color-base-100);
     --pagefind-ui-primary: var(--color-primary);
     --pagefind-ui-text: var(--color-base-content);
-    --pagefind-ui-border: var(--color-base-content);
+    --pagefind-ui-border: var(--color-primary-content);
     --pagefind-ui-border-width: var(--border);
     --pagefind-ui-border-radius: var(--radius-box);
     --pagefind-ui-font: inherit;
