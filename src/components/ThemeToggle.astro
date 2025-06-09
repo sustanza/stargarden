@@ -7,15 +7,14 @@
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 ---
 <!-- Sync theme-controller checkboxes & persist selection -->
-<!-- <script src="/scripts/themeController.js" defer></script> -->
 <script>
   import "../scripts/themeController.ts";
 </script>
 <!-- DaisyUI theme toggle switch -->
-<label class="swap swap-rotate cursor-pointer">
+<label class="swap swap-rotate cursor-pointer lg:ml-2">
   <input type="checkbox" class="theme-controller" value="business" />
-  <SunIcon className="swap-off h-10 w-10" />
-  <MoonIcon className="swap-on h-10 w-10" />
+  <SunIcon className="swap-off lg-6 w-6 lg:h-10 lg:w-10" />
+  <MoonIcon className="swap-on lg-6 w-6 lg:h-10 lg:w-10" />
 </label>
 
 
