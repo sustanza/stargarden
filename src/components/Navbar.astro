@@ -119,3 +119,32 @@ import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@h
     </div>
   </nav>
 </header>
+
+<!-- Sync theme-controller checkboxes & persist selection -->
+<script is:inline>
+  // Run after DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    const controllers = document.querySelectorAll('.theme-controller');
+
+    // 1. Initialise from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      controllers.forEach(cb => (cb.checked = cb.value === savedTheme));
+    }
+
+    // 2. Persist and broadcast on change
+    controllers.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const newTheme = cb.checked ? cb.value : 'corporate'; // default light theme
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // keep every controller in sync
+        controllers.forEach(other => {
+          other.checked = other.value === newTheme;
+        });
+      });
+    });
+  });
+</script>
