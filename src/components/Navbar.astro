@@ -30,15 +30,15 @@ import ThemeToggle from '../components/ThemeToggle.astro';
           href="/"
           class="absolute left-1/2 -translate-x-1/2 flex items-center"
         >
-          <Image src={logo} alt="Stargarden logo" class="h-18 w-auto" />
+          <Image src={logo} alt="Stargarden logo" class="h-[4.5rem] w-auto" />
         </a>
         <div class="flex-none ml-auto">
           <button
             aria-label="Open search"
             class="btn btn-ghost btn-square"
-            onclick="search_modal.showModal()"
+            onclick="document.getElementById('search_modal')?.showModal()"
           >
-            {/* Magnifying glass icon */}
+            <!-- Magnifying glass icon -->
             <MagnifyingGlassIcon className="h-5 w-5" />
           </button>
           <ThemeToggle />
@@ -89,7 +89,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
   >
     <div class="navbar-start">
       <a href="/" class="flex items-center gap-2">
-        <Image src={logo} alt="Stargarden logo" class="h-18 w-auto" />
+        <Image src={logo} alt="Stargarden logo" class="h-[4.5rem] w-auto" />
         <span class="text-xl font-bold">Stargarden</span>
       </a>
     </div>
