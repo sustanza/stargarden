@@ -1,9 +1,13 @@
-import { getViteConfig } from 'astro/config';
+import { defineConfig } from 'vitest/config';
 
-export default getViteConfig(
-  {},
-  {
-    site: 'https://stargarden.pages.dev',
-    trailingSlash: 'always',
+/**
+ * Vitest configuration.
+ * - Uses jsdom for DOM APIs in tests.
+ * - Enables globals (describe/it/expect) without explicit imports.
+ */
+export default defineConfig({
+  test: {
+    environment: 'jsdom',
+    globals: true,
   },
-);
+});
