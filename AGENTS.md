@@ -11,3 +11,4 @@
 - **Always provide completed, functioning code**—avoid partial commits that break builds.  
 - **Always use Markdown** for posts.
 - **Use existing patterns** in the codebase when implementing new features unless otherwise specified.
+- **Always use GH CLI** for GitHub operations, otherwise ask to perform alternatives.
