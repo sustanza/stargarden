@@ -49,6 +49,7 @@ const seoConfig = {
       titleTemplate="%s – StarGarden"
       titleDefault="StarGarden Theme"
     />
+    <slot name="head" />
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
