@@ -17,7 +17,7 @@ const { Content } = await post.render();
 <Layout seo={{ title: post.data.title, description: post.data.description }}>
   <article class="prose max-w-2xl mx-auto">
     <h1>{post.data.title}</h1>
-    <p class="text-sm text-base font-bold mb-4">
+    <p class="text-sm font-bold mb-4">
       {post.data.date.toLocaleDateString()}
     </p>
     <Image
@@ -30,6 +30,6 @@ const { Content } = await post.render();
     <Content />
   </article>
   <div class="flex justify-center mt-8">
-    <a href="/posts" class="btn btn-primary">Back to all posts</a>
+    <a href="/posts/" class="btn btn-primary">Back to all posts</a>
   </div>
 </Layout>

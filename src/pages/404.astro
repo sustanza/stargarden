@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import notFound from "../assets/404.png";
+---
+
+<Layout seo={{ title: "Page Not Found", description: "We couldn’t find that page." }}>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+  </Fragment>
+  <section class="min-h-[60vh] flex items-center">
+    <div class="container mx-auto px-4 w-full">
+      <div class="card bg-base-200 shadow-xl max-w-3xl mx-auto">
+        <figure class="p-6">
+          <Image
+            src={notFound}
+            alt="Page not found"
+            width={560}
+            height={315}
+            class="mx-auto my-8 rounded-lg shadow-md"
+            loading="lazy"
+          />
+        </figure>
+        <div class="card-body items-center text-center">
+          <h1 class="card-title text-3xl">Page not found</h1>
+          <p class="text-base-content/70">The page you’re looking for doesn’t exist or has moved.</p>
+          <div class="card-actions justify-center mt-2">
+            <a href="/" class="btn btn-primary">Go home</a>
+            <a href="/posts/" class="btn">View posts</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
