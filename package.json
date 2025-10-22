@@ -9,7 +9,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "vitest"
+    "test": "vitest",
+    "test:e2e": "playwright test",
+    "test:ci": "npm run build && playwright test"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -30,6 +32,7 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.1",
     "@tailwindcss/typography": "^0.5.16",
     "jsdom": "^26.1.0",
     "vitest": "^3.1.3"
