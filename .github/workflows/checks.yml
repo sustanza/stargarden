@@ -1,6 +1,9 @@
 # Build check workflow for Astro site
 name: Build
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: ["main"]
