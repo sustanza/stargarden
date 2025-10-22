@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/sustanza/stargarden/compare/v1.4.0...v1.5.0) (2025-10-22)
+
+
+### Features
+
+* **e2e:** add playwright smoke suite and refresh deps ([#14](https://github.com/sustanza/stargarden/issues/14)) ([9fb4cba](https://github.com/sustanza/stargarden/commit/9fb4cba3262e7f312eeba578588cfccce7d595fb))
+
 ## [1.4.0](https://github.com/sustanza/stargarden/compare/v1.3.0...v1.4.0) (2025-09-13)
 
 
