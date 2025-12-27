@@ -30,7 +30,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-
+  experimental: {
+    svgo: true
+  },
   integrations: [sitemap(), react(), pagefind(),
     expressiveCode]
 });
