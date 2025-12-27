@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/sustanza/stargarden/compare/v1.6.0...v1.7.0) (2025-12-27)
+
+
+### Features
+
+* add github link to footer ([3bfbd00](https://github.com/sustanza/stargarden/commit/3bfbd00b40a0f4ce35289146edce07624fb6743a))
+
 ## [1.6.0](https://github.com/sustanza/stargarden/compare/v1.5.0...v1.6.0) (2025-12-27)
 
 
