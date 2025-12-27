@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/sustanza/stargarden/compare/v1.5.0...v1.6.0) (2025-12-27)
+
+
+### Features
+
+* **rss:** add RSS feed for blog subscriptions ([1da4879](https://github.com/sustanza/stargarden/commit/1da487928761956957d8e6cbc1a1240c0d40d24d))
+
 ## [1.5.0](https://github.com/sustanza/stargarden/compare/v1.4.0...v1.5.0) (2025-10-22)
 
 
