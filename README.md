@@ -21,10 +21,11 @@ Explore and customize the examples provided in the `src/` directory to boldly cr
 
 ## 🌌 Feature Control Panel
 
-- **Astro Framework** – Harness Astro’s cutting‑edge tools to build blazing‑fast sites.
+- **Astro Framework** – Harness Astro's cutting‑edge tools to build blazing‑fast sites.
 - **Tailwind & DaisyUI** – A refined and adaptable design system ready for use.
 - **Markdown & Content Collections** – Easily write and manage your content with Markdown.
 - **SEO Essentials** – Integrated `astro-seo` module to clearly broadcast your site across the galaxy.
+- **RSS Feed** – Built-in RSS feed at `/rss.xml` for readers to subscribe to your content.
 - **Responsive Layouts** – Fully responsive navigation, footer, and landing page components.
 
 ## 🛰️ Encountered an Issue?
