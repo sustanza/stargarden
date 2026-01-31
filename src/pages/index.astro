@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 const posts = await getCollection('posts');
 ---
 
-<Layout>
+<Layout seo={{ title: "Home", description: "StarGarden – a customizable Astro theme for blogs and content sites." }}>
 	<Landing />
 
     <!-- Featured Demo Content Section -->

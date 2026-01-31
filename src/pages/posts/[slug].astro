@@ -12,9 +12,10 @@ const { slug } = Astro.params;
 const post = await getEntry("posts", slug);
 if (!post) throw new Error(`Post “${slug}” not found`);
 const { Content } = await post.render();
+const ogImage = new URL(post.data.cover.src, Astro.site).href;
 ---
 
-<Layout seo={{ title: post.data.title, description: post.data.description }}>
+<Layout seo={{ title: post.data.title, description: post.data.description, image: ogImage }}>
   <article class="prose max-w-2xl mx-auto">
     <h1>{post.data.title}</h1>
     <p class="text-sm font-bold mb-4">
