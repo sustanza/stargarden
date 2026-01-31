@@ -1,5 +1,6 @@
 ---
 title: FAQ
+description: "Frequently asked questions about Stargarden."
 layout: '../layouts/Markdown.astro'
 ---
 

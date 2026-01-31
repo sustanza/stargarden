@@ -11,11 +11,18 @@ export interface Props {
   seo?: {
     title?: string;
     description?: string;
+    /** Absolute URL for the OpenGraph image */
+    image?: string;
+    /** Set to true to add a noindex robots directive */
+    noindex?: boolean;
   };
   /** Standard front‑matter fields coming from Markdown/MDX pages */
   title?: string;
   description?: string;
 }
+
+const defaultDescription = "StarGarden – a customizable Astro theme";
+const logoUrl = new URL(logo.src, Astro.site).href;
 
 // Destructure front‑matter fields as well as the existing `seo` object
 const { seo = {}, title, description } = Astro.props;
@@ -23,10 +30,37 @@ const { seo = {}, title, description } = Astro.props;
 /** Merge explicit `seo` overrides with any front‑matter fields.
  *  Values defined in `seo` win over front‑matter, preserving backward compatibility.
  */
-const seoConfig = {
-  ...seo,
-  title: seo.title ?? title,
-  description: seo.description ?? description,
+const pageTitle = seo.title ?? title;
+const pageDescription = seo.description ?? description ?? defaultDescription;
+
+/** Build OpenGraph configuration when a page title is available */
+const openGraph = pageTitle
+  ? {
+      basic: {
+        title: pageTitle,
+        type: seo.image ? "article" : "website",
+        image: seo.image ?? logoUrl,
+      },
+      optional: {
+        description: pageDescription,
+        siteName: "StarGarden",
+      },
+      image: {
+        alt: pageTitle,
+        width: 1200,
+        height: 630,
+      },
+    }
+  : undefined;
+
+/** Single props object for the SEO component */
+const seoProps = {
+  title: pageTitle,
+  description: pageDescription,
+  titleTemplate: "%s – StarGarden",
+  titleDefault: "StarGarden Theme",
+  ...(seo.noindex ? { noindex: true, nofollow: true } : {}),
+  ...(openGraph ? { openGraph } : {}),
 };
 ---
 
@@ -41,14 +75,7 @@ const seoConfig = {
         document.documentElement.setAttribute('data-theme', savedTheme);
       }
     </script>
-    <SEO
-      {...seoConfig}
-      title={seoConfig.title}
-      description={seoConfig.description ??
-        "StarGarden – a customizable Astro theme"}
-      titleTemplate="%s – StarGarden"
-      titleDefault="StarGarden Theme"
-    />
+    <SEO {...seoProps} />
     <slot name="head" />
     <script
       type="application/ld+json"
@@ -57,7 +84,7 @@ const seoConfig = {
         "@type": "Organization",
         name: "StarGarden",
         url: Astro.site,
-        logo: new URL(logo.src, Astro.site).href,
+        logo: logoUrl,
         sameAs: ["https://www.youtube.com/@StarGarden"],
       })}
     />

@@ -1,5 +1,6 @@
 ---
 title: Terms of Service
+description: "Terms of service for the Stargarden theme."
 layout: '../layouts/Markdown.astro'
 date: "2025-04-28"
 ---

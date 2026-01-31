@@ -1,5 +1,6 @@
 ---
 title: About
+description: "Learn about the Stargarden Astro theme."
 cover: '../assets/about.png'
 layout: '../layouts/Markdown.astro'
 ---

@@ -4,10 +4,7 @@ import { Image } from "astro:assets";
 import notFound from "../assets/404.png";
 ---
 
-<Layout seo={{ title: "Page Not Found", description: "We couldn’t find that page." }}>
-  <Fragment slot="head">
-    <meta name="robots" content="noindex" />
-  </Fragment>
+<Layout seo={{ title: "Page Not Found", description: "We couldn't find that page.", noindex: true }}>
   <section class="min-h-[60vh] flex items-center">
     <div class="container mx-auto px-4 w-full">
       <div class="card bg-base-200 shadow-xl max-w-3xl mx-auto">
