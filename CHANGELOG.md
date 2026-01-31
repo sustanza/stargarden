@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/sustanza/stargarden/compare/v1.7.0...v1.8.0) (2026-01-31)
+
+
+### Features
+
+* **seo:** add OpenGraph metadata and improve SEO usage ([#20](https://github.com/sustanza/stargarden/issues/20)) ([dac1753](https://github.com/sustanza/stargarden/commit/dac17531bf270d9041be802d00fe4dc613b77ea7))
+
 ## [1.7.0](https://github.com/sustanza/stargarden/compare/v1.6.0...v1.7.0) (2025-12-27)
 
 
