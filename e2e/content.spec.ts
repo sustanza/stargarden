@@ -22,3 +22,25 @@ test.describe('demo content smoke', () => {
     }
   });
 });
+
+/**
+ * Verifies that posts with `draft: true` are excluded from all public pages
+ * and do not generate individual routes.
+ */
+test.describe('draft post filtering', () => {
+  test('draft post does not appear in the posts listing', async ({ page }) => {
+    await page.goto('/posts/');
+    await expect(page.locator('a.card').first()).toBeVisible();
+    await expect(page.locator('text=Draft Test Post')).toHaveCount(0);
+  });
+
+  test('draft post does not appear on the home page', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('text=Draft Test Post')).toHaveCount(0);
+  });
+
+  test('draft post returns 404', async ({ page }) => {
+    const response = await page.goto('/posts/draft-test-post/');
+    expect(response?.status()).toBe(404);
+  });
+});
