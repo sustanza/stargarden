@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/sustanza/stargarden/compare/v1.8.0...v1.8.1) (2026-03-11)
+
+
+### Bug Fixes
+
+* maintenance patch — draft filtering, dep updates, dead code ([#22](https://github.com/sustanza/stargarden/issues/22)) ([17b5a09](https://github.com/sustanza/stargarden/commit/17b5a096cb11b4c392cb4b662b5da0efb3e48399))
+
 ## [1.8.0](https://github.com/sustanza/stargarden/compare/v1.7.0...v1.8.0) (2026-01-31)
 
 
