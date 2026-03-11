@@ -1,9 +1,8 @@
 ---
-title: "Posts";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-const posts = await getCollection("posts");
+const posts = await getCollection("posts", ({ data }) => !data.draft);
 ---
 
 <Layout seo={{ title: "Posts", description: "A collection of blog posts about stars and astronomy." }}>

@@ -1,8 +1,6 @@
 // src/content/config.ts
 import { defineCollection, z } from "astro:content";
 
-const slug = z.string().regex(/^[a-z0-9-]+$/);
-
 export const collections = {
   posts: defineCollection({
     type: "content",
