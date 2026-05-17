@@ -34,6 +34,7 @@ interface ExpressiveCodeOptions {
  */
 interface AstroConfigShape {
   readonly site?: string;
+  readonly prefetch?: boolean | Record<string, unknown>;
   readonly integrations?: IntegrationStub[];
   readonly vite?: {
     readonly plugins?: PluginStub[];
@@ -119,6 +120,10 @@ describe("astro.config.mjs", () => {
       borderRadius: "0.5rem",
       frames: { shadowColor: "#124" },
     });
+  });
+
+  it("enables link prefetching with the default hover strategy", () => {
+    expect(config.prefetch).toBe(true);
   });
 
   it("wires reading-time and heading-anchor markdown plugins", () => {
