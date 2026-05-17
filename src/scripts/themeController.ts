@@ -57,10 +57,11 @@ export function setupThemeController(): void {
 /* ------------------------------------------------------------------ */
 /*  Auto‑run when this module is executed in the browser environment. */
 /* ------------------------------------------------------------------ */
+/*  Listen for astro:page-load (fires on initial load AND every SPA   */
+/*  navigation after <ClientRouter /> takes over). Per docs at        */
+/*  /en/guides/view-transitions/#astropage-load — bundled module      */
+/*  scripts only execute once, so we re-bind on every page swap.      */
+/* ------------------------------------------------------------------ */
 if (typeof window !== "undefined") {
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupThemeController);
-  } else {
-    setupThemeController();
-  }
+  document.addEventListener("astro:page-load", setupThemeController);
 }

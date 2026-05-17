@@ -33,6 +33,7 @@ const expressiveCode = astroExpressiveCode({
 // https://astro.build/config
 export default defineConfig({
   site: "https://stargarden.pages.dev",
+  prefetch: true,
   vite: {
     plugins: [tailwindcss()],
   },
