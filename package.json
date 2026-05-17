@@ -3,11 +3,11 @@
   "type": "module",
   "version": "1.8.2",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:search": "npm run build && astro preview",
     "astro": "astro",
     "test": "vitest",
     "test:e2e": "playwright test",
