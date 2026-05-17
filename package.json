@@ -14,7 +14,7 @@
     "test:ci": "npm run build && playwright test"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.2",
+    "@astrojs/react": "^5.0.4",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "@heroicons/react": "^2.2.0",
