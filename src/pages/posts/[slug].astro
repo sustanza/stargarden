@@ -1,17 +1,17 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 export const prerender = true;
 import { Image } from "astro:assets";
 export async function getStaticPaths() {
   const posts = await getCollection("posts", ({ data }) => !data.draft);
-  return posts.map(({ slug }) => ({ params: { slug } }));
+  return posts.map(({ id }) => ({ params: { slug: id } }));
 }
 
 const { slug } = Astro.params;
 const post = await getEntry("posts", slug);
 if (!post) throw new Error(`Post “${slug}” not found`);
-const { Content } = await post.render();
+const { Content } = await render(post);
 const ogImage = new URL(post.data.cover.src, Astro.site).href;
 ---
 

@@ -18,7 +18,7 @@ const posts = await getCollection('posts', ({ data }) => !data.draft);
 			.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
 			.slice(0, 9)
 			.map(v => (
-			  <a href={`/posts/${v.slug}/`} class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+			  <a href={`/posts/${v.id}/`} class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out">
 				<figure>
 				  <Image 
 					src={v.data.cover}
