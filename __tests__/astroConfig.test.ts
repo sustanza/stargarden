@@ -37,6 +37,10 @@ interface AstroConfigShape {
   readonly vite?: {
     readonly plugins?: PluginStub[];
   };
+  readonly markdown?: {
+    readonly remarkPlugins?: ReadonlyArray<unknown>;
+    readonly rehypePlugins?: ReadonlyArray<unknown>;
+  };
 }
 
 const tailwindPluginStub: PluginStub = { name: "@tailwindcss/vite" };
@@ -107,5 +111,20 @@ describe("astro.config.mjs", () => {
       borderRadius: "0.5rem",
       frames: { shadowColor: "#124" },
     });
+  });
+
+  it("wires reading-time and heading-anchor markdown plugins", () => {
+    const remarkPlugins = config.markdown?.remarkPlugins ?? [];
+    expect(remarkPlugins).toHaveLength(1);
+    expect(typeof remarkPlugins[0]).toBe("function");
+
+    const rehypePlugins = config.markdown?.rehypePlugins ?? [];
+    expect(rehypePlugins).toHaveLength(2);
+    // rehype-slug entry is the bare plugin function
+    expect(typeof rehypePlugins[0]).toBe("function");
+    // rehype-autolink-headings entry is [plugin, options]
+    expect(Array.isArray(rehypePlugins[1])).toBe(true);
+    const autolinkEntry = rehypePlugins[1] as [unknown, { behavior: string }];
+    expect(autolinkEntry[1]).toMatchObject({ behavior: "wrap" });
   });
 });

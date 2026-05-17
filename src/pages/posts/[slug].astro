@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const post = await getEntry("posts", slug);
 if (!post) throw new Error(`Post “${slug}” not found`);
-const { Content } = await render(post);
+const { Content, remarkPluginFrontmatter } = await render(post);
 const ogImage = new URL(post.data.cover.src, Astro.site).href;
 ---
 
@@ -24,6 +24,9 @@ const ogImage = new URL(post.data.cover.src, Astro.site).href;
     <h1>{post.data.title}</h1>
     <p class="mb-4 text-sm font-bold">
       {post.data.date.toLocaleDateString()}
+      <span class="text-base-content/60 ml-2 font-normal"
+        >· {remarkPluginFrontmatter.minutesRead}</span
+      >
     </p>
     <Image
       src={post.data.cover}
