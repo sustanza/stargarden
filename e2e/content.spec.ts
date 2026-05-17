@@ -26,6 +26,27 @@ test.describe("demo content smoke", () => {
 });
 
 /**
+ * Confirms that pages migrated to the `pages` content collection still render
+ * at their top-level routes after the migration from src/pages/*.md.
+ */
+test.describe("pages collection routing", () => {
+  const pages: Array<{ path: string; heading: string }> = [
+    { path: "/about/", heading: "About" },
+    { path: "/privacy/", heading: "Privacy Policy" },
+    { path: "/tos/", heading: "Terms of Service" },
+    { path: "/faq/", heading: "FAQ" },
+  ];
+
+  for (const { path, heading } of pages) {
+    test(`${path} renders with the expected heading`, async ({ page }) => {
+      const response = await page.goto(path);
+      expect(response?.status()).toBe(200);
+      await expect(page.locator("h1").first()).toHaveText(heading);
+    });
+  }
+});
+
+/**
  * Verifies that posts with `draft: true` are excluded from all public pages
  * and do not generate individual routes.
  */

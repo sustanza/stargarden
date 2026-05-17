@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((page) => ({
+    params: { slug: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+const ogImage = page.data.cover
+  ? new URL(page.data.cover.src, Astro.site).href
+  : undefined;
+---
+
+<Layout
+  title={page.data.title}
+  description={page.data.description}
+  image={ogImage}
+>
+  <div class="flex flex-col items-center">
+    <h1 class="mb-4 text-3xl font-bold">{page.data.title}</h1>
+    {
+      page.data.date && (
+        <p class="text-accent mb-4 text-sm font-bold">
+          {page.data.date.toLocaleDateString()}
+        </p>
+      )
+    }
+    {
+      page.data.cover && (
+        <Image
+          src={page.data.cover}
+          alt={page.data.title}
+          width={560}
+          height={315}
+          class="mx-auto my-8 rounded-lg shadow-md"
+        />
+      )
+    }
+    <div class="prose mx-auto">
+      <Content />
+    </div>
+  </div>
+</Layout>
