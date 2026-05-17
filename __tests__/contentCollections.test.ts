@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { describe, expect, it } from "vitest";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { join, resolve } from "node:path";
 
 /**
  * The subset of post frontmatter we validate for smoke testing.
@@ -22,7 +22,7 @@ interface PostFrontmatter {
  * @param markdownFile Absolute path to the markdown file to inspect.
  */
 function getFrontmatterBlock(markdownFile: string): string {
-  const raw = readFileSync(markdownFile, 'utf-8');
+  const raw = readFileSync(markdownFile, "utf-8");
   const frontmatterMatch = raw.match(/^---\n([\s\S]+?)\n---/);
   if (!frontmatterMatch) {
     throw new Error(`Missing frontmatter in ${markdownFile}`);
@@ -36,7 +36,10 @@ function getFrontmatterBlock(markdownFile: string): string {
  */
 function stripQuotes(value: string): string {
   const trimmed = value.trim();
-  if ((trimmed.startsWith("'") && trimmed.endsWith("'")) || (trimmed.startsWith('"') && trimmed.endsWith('"'))) {
+  if (
+    (trimmed.startsWith("'") && trimmed.endsWith("'")) ||
+    (trimmed.startsWith('"') && trimmed.endsWith('"'))
+  ) {
     return trimmed.slice(1, -1);
   }
   return trimmed;
@@ -47,14 +50,14 @@ function stripQuotes(value: string): string {
  * @param raw Raw string containing the array literal, including brackets.
  */
 function parseInlineStringArray(raw: string): string[] {
-  if (!raw.startsWith('[') || !raw.endsWith(']')) {
+  if (!raw.startsWith("[") || !raw.endsWith("]")) {
     return [];
   }
   return raw
     .slice(1, -1)
-    .split(',')
-    .map(entry => stripQuotes(entry))
-    .filter(entry => entry.length > 0);
+    .split(",")
+    .map((entry) => stripQuotes(entry))
+    .filter((entry) => entry.length > 0);
 }
 
 /**
@@ -63,18 +66,18 @@ function parseInlineStringArray(raw: string): string[] {
  * @param block Raw YAML frontmatter without the surrounding markers.
  */
 function parseFrontmatter(block: string): Partial<PostFrontmatter> {
-  const lines = block.split('\n');
+  const lines = block.split("\n");
   const result: Partial<PostFrontmatter> = {};
-  let activeArrayKey: 'tags' | null = null;
+  let activeArrayKey: "tags" | null = null;
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
-    if (!line || line.startsWith('#')) {
+    if (!line || line.startsWith("#")) {
       continue;
     }
 
-    if (line.startsWith('- ')) {
-      if (activeArrayKey === 'tags') {
+    if (line.startsWith("- ")) {
+      if (activeArrayKey === "tags") {
         const entries = result.tags ?? [];
         const value = stripQuotes(line.slice(2));
         if (value) {
@@ -86,7 +89,7 @@ function parseFrontmatter(block: string): Partial<PostFrontmatter> {
     }
 
     activeArrayKey = null;
-    const colonIndex = rawLine.indexOf(':');
+    const colonIndex = rawLine.indexOf(":");
     if (colonIndex === -1) {
       continue;
     }
@@ -96,35 +99,35 @@ function parseFrontmatter(block: string): Partial<PostFrontmatter> {
     const scalar = stripQuotes(remainder);
 
     switch (key) {
-      case 'title':
+      case "title":
         if (scalar) result.title = scalar;
         break;
-      case 'description':
+      case "description":
         if (scalar) result.description = scalar;
         break;
-      case 'cover':
+      case "cover":
         if (scalar) result.cover = scalar;
         break;
-      case 'date':
+      case "date":
         if (scalar) result.date = scalar;
         break;
-      case 'slug':
+      case "slug":
         if (scalar) result.slug = scalar;
         break;
-      case 'draft':
-        if (scalar === 'true') {
+      case "draft":
+        if (scalar === "true") {
           result.draft = true;
-        } else if (scalar === 'false') {
+        } else if (scalar === "false") {
           result.draft = false;
         }
         break;
-      case 'tags':
+      case "tags":
         if (!remainder) {
-          activeArrayKey = 'tags';
+          activeArrayKey = "tags";
           result.tags = [];
           break;
         }
-        if (remainder.startsWith('[') && remainder.endsWith(']')) {
+        if (remainder.startsWith("[") && remainder.endsWith("]")) {
           result.tags = parseInlineStringArray(remainder);
         } else if (scalar) {
           result.tags = [scalar];
@@ -138,25 +141,33 @@ function parseFrontmatter(block: string): Partial<PostFrontmatter> {
   return result;
 }
 
-describe('content collections smoke test', () => {
-  const postsRoot = resolve(process.cwd(), 'src/content/posts');
-  const postDirectories = readdirSync(postsRoot).filter(entry => statSync(join(postsRoot, entry)).isDirectory());
+describe("content collections smoke test", () => {
+  const postsRoot = resolve(process.cwd(), "src/content/posts");
+  const postDirectories = readdirSync(postsRoot).filter((entry) =>
+    statSync(join(postsRoot, entry)).isDirectory(),
+  );
 
-  it('keeps each sample post wired with metadata and assets', () => {
+  it("keeps each sample post wired with metadata and assets", () => {
     expect(postDirectories.length).toBeGreaterThan(0);
 
     const discoveredSlugs = new Set<string>();
 
     for (const directory of postDirectories) {
-      const markdownPath = join(postsRoot, directory, 'index.md');
+      const markdownPath = join(postsRoot, directory, "index.md");
       expect(existsSync(markdownPath)).toBe(true);
 
       const frontmatter = parseFrontmatter(getFrontmatterBlock(markdownPath));
 
       expect(frontmatter.title, `${directory} is missing a title`).toBeTruthy();
-      expect(frontmatter.description, `${directory} is missing a description`).toBeTruthy();
+      expect(
+        frontmatter.description,
+        `${directory} is missing a description`,
+      ).toBeTruthy();
       expect(frontmatter.date, `${directory} is missing a date`).toBeTruthy();
-      expect(frontmatter.cover, `${directory} is missing a cover reference`).toBeTruthy();
+      expect(
+        frontmatter.cover,
+        `${directory} is missing a cover reference`,
+      ).toBeTruthy();
       expect(frontmatter.tags, `${directory} is missing tags`).toBeDefined();
 
       const coverPath = join(postsRoot, directory, String(frontmatter.cover));
@@ -171,7 +182,8 @@ describe('content collections smoke test', () => {
       expect(Array.isArray(tags)).toBe(true);
       expect(tags.length).toBeGreaterThan(0);
 
-      const canonicalSlug = typeof frontmatter.slug === 'string' ? frontmatter.slug : directory;
+      const canonicalSlug =
+        typeof frontmatter.slug === "string" ? frontmatter.slug : directory;
       expect(canonicalSlug).toMatch(/^[a-z0-9-]+$/);
       discoveredSlugs.add(canonicalSlug);
     }

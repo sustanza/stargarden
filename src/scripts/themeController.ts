@@ -12,12 +12,13 @@
 
 export function setupThemeController(): void {
   // Collect every checkbox that controls the theme.
-  const controllers = document.querySelectorAll<HTMLInputElement>(".theme-controller");
+  const controllers =
+    document.querySelectorAll<HTMLInputElement>(".theme-controller");
 
   // Helper to apply a theme and keep all checkboxes in sync.
   const applyTheme = (theme: string): void => {
     document.documentElement.setAttribute("data-theme", theme);
-    controllers.forEach(cb => {
+    controllers.forEach((cb) => {
       cb.checked = cb.value === theme;
     });
   };
@@ -27,7 +28,7 @@ export function setupThemeController(): void {
   applyTheme(savedTheme);
 
   // Listen for user changes.
-  controllers.forEach(cb => {
+  controllers.forEach((cb) => {
     cb.addEventListener("change", () => {
       const newTheme = cb.checked ? cb.value : "corporate";
       localStorage.setItem("theme", newTheme);

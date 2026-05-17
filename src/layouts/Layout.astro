@@ -70,9 +70,9 @@ const seoProps = {
     <meta charset="utf-8" />
     <!-- Persisted theme (dark / light) is applied as early as possible -->
     <script is:inline>
-      const savedTheme = localStorage.getItem('theme');
+      const savedTheme = localStorage.getItem("theme");
       if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.documentElement.setAttribute("data-theme", savedTheme);
       }
     </script>
     <SEO {...seoProps} />
@@ -91,17 +91,22 @@ const seoProps = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" title="Stargarden RSS Feed" href="/rss.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Stargarden RSS Feed"
+      href="/rss.xml"
+    />
     <meta name="generator" content={Astro.generator} />
   </head>
 
   <body
-    class="bg-base-100 text-base-content min-h-screen flex flex-col overflow-x-hidden"
+    class="bg-base-100 text-base-content flex min-h-screen flex-col overflow-x-hidden"
   >
     <Navbar />
 
     <!-- Main page content -->
-    <main class="flex-1 container mx-auto px-4 py-8">
+    <main class="container mx-auto flex-1 px-4 py-8">
       <slot />
     </main>
 

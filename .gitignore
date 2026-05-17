@@ -29,3 +29,6 @@ pnpm-debug.log*
 .obsidian/
 
 .vscode/
+
+# Claude Code local state (worktrees, settings)
+.claude/

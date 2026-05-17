@@ -1,5 +1,5 @@
 ---
-title: 'Black Holes: Mysteries of the Universe'
+title: "Black Holes: Mysteries of the Universe"
 slug: black-holes
 description: What are black holes, and why do they fascinate astronomers?
 date: 2025-05-04

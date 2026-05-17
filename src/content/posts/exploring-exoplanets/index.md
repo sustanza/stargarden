@@ -14,9 +14,9 @@ For centuries, humanity has gazed at the stars and wondered if we are alone in t
 
 Detecting these distant worlds is a technological marvel. The most common methods include:
 
-*   **Transit Method:** Observing the slight dimming of a star's light as an exoplanet passes in front of it.
-*   **Radial Velocity Method:** Measuring the tiny wobble in a star's position caused by the gravitational pull of an orbiting planet.
-*   **Direct Imaging:** Capturing actual images of exoplanets, though this is challenging due to the overwhelming brightness of their host stars.
+- **Transit Method:** Observing the slight dimming of a star's light as an exoplanet passes in front of it.
+- **Radial Velocity Method:** Measuring the tiny wobble in a star's position caused by the gravitational pull of an orbiting planet.
+- **Direct Imaging:** Capturing actual images of exoplanets, though this is challenging due to the overwhelming brightness of their host stars.
 
 ## The Search for Habitable Worlds
 

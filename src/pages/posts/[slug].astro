@@ -15,10 +15,16 @@ const { Content } = await render(post);
 const ogImage = new URL(post.data.cover.src, Astro.site).href;
 ---
 
-<Layout seo={{ title: post.data.title, description: post.data.description, image: ogImage }}>
-  <article class="prose max-w-2xl mx-auto">
+<Layout
+  seo={{
+    title: post.data.title,
+    description: post.data.description,
+    image: ogImage,
+  }}
+>
+  <article class="prose mx-auto max-w-2xl">
     <h1>{post.data.title}</h1>
-    <p class="text-sm font-bold mb-4">
+    <p class="mb-4 text-sm font-bold">
       {post.data.date.toLocaleDateString()}
     </p>
     <Image
@@ -30,7 +36,7 @@ const ogImage = new URL(post.data.cover.src, Astro.site).href;
     />
     <Content />
   </article>
-  <div class="flex justify-center mt-8">
+  <div class="mt-8 flex justify-center">
     <a href="/posts/" class="btn btn-primary">Back to all posts</a>
   </div>
 </Layout>

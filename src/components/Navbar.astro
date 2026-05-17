@@ -2,18 +2,22 @@
 import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
 import Search from "astro-pagefind/components/Search";
-import { MagnifyingGlassIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import ThemeToggle from '../components/ThemeToggle.astro';
+import {
+  MagnifyingGlassIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import ThemeToggle from "../components/ThemeToggle.astro";
 ---
 
-<header class="shadow-sm bg-base-100">
+<header class="bg-base-100 shadow-sm">
   <!-- ********** Mobile (< lg): drawer & navbar ********** -->
   <div class="drawer lg:hidden">
     <!-- Hidden checkbox toggles the drawer -->
     <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
 
     <div class="drawer-content flex flex-col">
-      <nav class="navbar bg-base-100 w-full lg:px-4 relative px-2">
+      <nav class="navbar bg-base-100 relative w-full px-2 lg:px-4">
         <!-- Hamburger icon on the left -->
         <div class="flex-none">
           <label
@@ -28,11 +32,11 @@ import ThemeToggle from '../components/ThemeToggle.astro';
         <!-- Logo centered absolutely -->
         <a
           href="/"
-          class="absolute left-1/2 -translate-x-1/2 flex items-center"
+          class="absolute left-1/2 flex -translate-x-1/2 items-center"
         >
           <Image src={logo} alt="Stargarden logo" class="h-[4.5rem] w-auto" />
         </a>
-        <div class="flex-none ml-auto">
+        <div class="ml-auto flex-none">
           <button
             aria-label="Open search"
             class="btn btn-ghost btn-square"
@@ -46,11 +50,11 @@ import ThemeToggle from '../components/ThemeToggle.astro';
       </nav>
       <dialog id="search_modal" class="modal">
         <div
-          class="modal-box w-11/12 max-w-2xl h-[90vh] overflow-y-auto flex flex-col relative"
+          class="modal-box relative flex h-[90vh] w-11/12 max-w-2xl flex-col overflow-y-auto"
         >
           <form method="dialog">
             <button
-              class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
               aria-label="Close search"
             >
               <XMarkIcon className="h-5 w-5" />
@@ -59,7 +63,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
           <div class="relative">
             <Search
               id="mobile-search"
-              className="pagefind-ui w-full mt-8 mb-2"
+              className="pagefind-ui mt-8 mb-2 w-full"
               uiOptions={{ showImages: false }}
             />
           </div>
@@ -71,12 +75,12 @@ import ThemeToggle from '../components/ThemeToggle.astro';
     <div class="drawer-side">
       <label for="nav-drawer" class="drawer-overlay" aria-label="Close sidebar"
       ></label>
-      <ul class="menu p-4 w-80 bg-base-100 min-h-full">
+      <ul class="menu bg-base-100 min-h-full w-80 p-4">
         <li>
-          <a href="/posts/" class="normal-case font-bold text-xl">Blog</a>
+          <a href="/posts/" class="text-xl font-bold normal-case">Blog</a>
         </li>
         <li>
-          <a href="/about/" class="normal-case font-bold text-xl">About</a>
+          <a href="/about/" class="text-xl font-bold normal-case">About</a>
         </li>
       </ul>
     </div>
@@ -84,7 +88,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 
   <!-- ********** Desktop (≥ lg): standard navbar ********** -->
   <nav
-    class="navbar hidden lg:flex w-full bg-base-100"
+    class="navbar bg-base-100 hidden w-full lg:flex"
     style="--navbar-padding:0;"
   >
     <div class="navbar-start">
@@ -96,18 +100,18 @@ import ThemeToggle from '../components/ThemeToggle.astro';
     <div class="navbar-end">
       <ul class="menu menu-horizontal gap-2">
         <li>
-          <a href="/posts/" class="normal-case font-bold text-lg">Posts</a>
+          <a href="/posts/" class="text-lg font-bold normal-case">Posts</a>
         </li>
         <li>
-          <a href="/about/" class="normal-case font-bold text-lg">About</a>
+          <a href="/about/" class="text-lg font-bold normal-case">About</a>
         </li>
       </ul>
-  
+
       <Search
         id="search"
         className="pagefind-ui"
         uiOptions={{ showImages: false }}
-      />    
+      />
       <ThemeToggle />
     </div>
   </nav>

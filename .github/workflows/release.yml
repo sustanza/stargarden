@@ -4,8 +4,8 @@ on:
     branches: [main]
 
 permissions:
-  contents: write             # allow tag + release
-  pull-requests: write        # allow the bot to open/refresh PRs
+  contents: write # allow tag + release
+  pull-requests: write # allow the bot to open/refresh PRs
   actions: write
 
 jobs:
@@ -23,7 +23,3 @@ jobs:
           # GitHub suppresses pull_request workflow triggers on events created
           # by GITHUB_TOKEN, leaving the required Build check un-run.
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-
-
-
-          
