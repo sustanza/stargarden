@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.0.0](https://github.com/sustanza/stargarden/compare/v1.8.2...v2.0.0) (2026-05-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* honor prefers-color-scheme and pair light/dark expressive-code themes ([#73](https://github.com/sustanza/stargarden/issues/73))
+* migrate standalone markdown pages to content collection ([#72](https://github.com/sustanza/stargarden/issues/72))
+* drop React stack in favor of inline SVG icons ([#67](https://github.com/sustanza/stargarden/issues/67))
+* replace astro-seo with BaseHead component + src/consts.ts ([#66](https://github.com/sustanza/stargarden/issues/66))
+
+### Features
+
+* add dynamic robots.txt endpoint ([#70](https://github.com/sustanza/stargarden/issues/70)) ([b88233e](https://github.com/sustanza/stargarden/commit/b88233efdab1bec4a9ee5a68b15d7791b01b6d9d))
+* add Prettier with Astro and Tailwind plugins ([#63](https://github.com/sustanza/stargarden/issues/63)) ([85234c4](https://github.com/sustanza/stargarden/commit/85234c4c52f8971453e46cce486c8a72b6adf774))
+* add reading time and heading anchors to posts ([#68](https://github.com/sustanza/stargarden/issues/68)) ([13a641a](https://github.com/sustanza/stargarden/commit/13a641a69c73b4f0d7d267f0884adc3fdf45fb0f))
+* enable view transitions (ClientRouter) and link prefetch ([#74](https://github.com/sustanza/stargarden/issues/74)) ([3d504e4](https://github.com/sustanza/stargarden/commit/3d504e4fd503b764a787557c13bbc4b10e3d47d9))
+* include full post content and cover enclosure in RSS feed ([#69](https://github.com/sustanza/stargarden/issues/69)) ([2cdb02e](https://github.com/sustanza/stargarden/commit/2cdb02e7b63fb2ba3321d4d42879b101fafabff2))
+* migrate standalone markdown pages to content collection ([#72](https://github.com/sustanza/stargarden/issues/72)) ([679ca0e](https://github.com/sustanza/stargarden/commit/679ca0e86f4655c5325aadedc48d9810b069b680))
+* replace astro-seo with BaseHead component + src/consts.ts ([#66](https://github.com/sustanza/stargarden/issues/66)) ([3bc1895](https://github.com/sustanza/stargarden/commit/3bc189506b21979162840ea1e9a0c5405aeb5d70))
+
+
+### Bug Fixes
+
+* honor prefers-color-scheme and pair light/dark expressive-code themes ([#73](https://github.com/sustanza/stargarden/issues/73)) ([2aa3dea](https://github.com/sustanza/stargarden/commit/2aa3dea9a3c4d0efacbad1c003b4e81a7b4f203d))
+
+
+### Code Refactoring
+
+* drop React stack in favor of inline SVG icons ([#67](https://github.com/sustanza/stargarden/issues/67)) ([0bb510b](https://github.com/sustanza/stargarden/commit/0bb510b12a77c59b9b8a73d2b1943721253c9511))
+
 ## [1.8.2](https://github.com/sustanza/stargarden/compare/v1.8.1...v1.8.2) (2026-05-17)
 
 
