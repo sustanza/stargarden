@@ -190,4 +190,37 @@ describe("content collections smoke test", () => {
 
     expect(discoveredSlugs.size).toBe(postDirectories.length);
   });
+
+  const pagesRoot = resolve(process.cwd(), "src/content/pages");
+  const pageDirectories = readdirSync(pagesRoot).filter((entry) =>
+    statSync(join(pagesRoot, entry)).isDirectory(),
+  );
+
+  it("keeps each pages entry valid against the pages schema", () => {
+    expect(pageDirectories.length).toBeGreaterThan(0);
+
+    for (const directory of pageDirectories) {
+      const markdownPath = join(pagesRoot, directory, "index.md");
+      expect(existsSync(markdownPath)).toBe(true);
+
+      const frontmatter = parseFrontmatter(getFrontmatterBlock(markdownPath));
+
+      expect(frontmatter.title, `${directory} is missing a title`).toBeTruthy();
+      expect(
+        frontmatter.description,
+        `${directory} is missing a description`,
+      ).toBeTruthy();
+      expect(String(frontmatter.description).length).toBeLessThanOrEqual(160);
+
+      if (frontmatter.cover) {
+        const coverPath = join(pagesRoot, directory, String(frontmatter.cover));
+        expect(existsSync(coverPath)).toBe(true);
+      }
+
+      if (frontmatter.date) {
+        const parsedDate = Date.parse(String(frontmatter.date));
+        expect(Number.isNaN(parsedDate)).toBe(false);
+      }
+    }
+  });
 });

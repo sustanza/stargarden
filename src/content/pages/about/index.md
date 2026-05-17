@@ -1,8 +1,7 @@
 ---
 title: About
 description: "Learn about the Stargarden Astro theme."
-cover: "../assets/about.png"
-layout: "../layouts/Markdown.astro"
+cover: "./cover.png"
 ---
 
 Stargarden is a markdown-first Astro theme designed for simplicity and ease of use. It’s built for quick, clean markdown publishing—ideal for personal blogs, documentation, or straightforward content sites.
