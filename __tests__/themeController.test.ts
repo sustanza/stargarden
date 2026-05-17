@@ -1,10 +1,48 @@
 /**
  * @vitest-environment jsdom
  */
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
-// Import the theme controller logic
-import { setupThemeController } from "../src/scripts/themeController";
+import {
+  getEffectiveTheme,
+  setupThemeController,
+} from "../src/scripts/themeController";
+
+/**
+ * jsdom doesn't implement matchMedia. Each test stubs it to control the
+ * `prefers-color-scheme: dark` branch.
+ */
+function stubMatchMedia(prefersDark: boolean): void {
+  vi.stubGlobal(
+    "matchMedia",
+    vi.fn().mockImplementation((query: string) => ({
+      matches: prefersDark && query.includes("prefers-color-scheme: dark"),
+      media: query,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    })),
+  );
+}
+
+describe("getEffectiveTheme", () => {
+  it("returns the saved value when it is a known theme", () => {
+    expect(getEffectiveTheme("business", false)).toBe("business");
+    expect(getEffectiveTheme("corporate", true)).toBe("corporate");
+  });
+
+  it("falls back to business when no saved theme and OS prefers dark", () => {
+    expect(getEffectiveTheme(null, true)).toBe("business");
+  });
+
+  it("falls back to corporate when no saved theme and OS does not prefer dark", () => {
+    expect(getEffectiveTheme(null, false)).toBe("corporate");
+  });
+
+  it("ignores unrecognized saved values", () => {
+    expect(getEffectiveTheme("mystery", true)).toBe("business");
+    expect(getEffectiveTheme("", false)).toBe("corporate");
+  });
+});
 
 describe("themeController", () => {
   beforeEach(() => {
@@ -12,6 +50,31 @@ describe("themeController", () => {
     localStorage.clear();
     document.body.innerHTML = "";
     document.documentElement.removeAttribute("data-theme");
+    vi.unstubAllGlobals();
+    stubMatchMedia(false);
+  });
+
+  it("respects prefers-color-scheme when no saved theme exists", () => {
+    stubMatchMedia(true);
+    document.body.innerHTML =
+      '<input type="checkbox" class="theme-controller" value="business">';
+    setupThemeController();
+    const cb = document.querySelector<HTMLInputElement>(".theme-controller");
+    expect(document.documentElement.getAttribute("data-theme")).toBe(
+      "business",
+    );
+    expect(cb?.checked).toBe(true);
+  });
+
+  it("defaults to corporate when no saved theme and OS prefers light", () => {
+    document.body.innerHTML =
+      '<input type="checkbox" class="theme-controller" value="business">';
+    setupThemeController();
+    const cb = document.querySelector<HTMLInputElement>(".theme-controller");
+    expect(document.documentElement.getAttribute("data-theme")).toBe(
+      "corporate",
+    );
+    expect(cb?.checked).toBe(false);
   });
 
   it("should set data-theme from localStorage on load", () => {
