@@ -41,7 +41,6 @@ interface AstroConfigShape {
 
 const tailwindPluginStub: PluginStub = { name: "@tailwindcss/vite" };
 const sitemapIntegrationStub: IntegrationStub = { name: "@astrojs/sitemap" };
-const reactIntegrationStub: IntegrationStub = { name: "@astrojs/react" };
 const pagefindIntegrationStub: IntegrationStub = { name: "astro-pagefind" };
 const expressiveCodeInvocations: ExpressiveCodeOptions[] = [];
 
@@ -59,10 +58,6 @@ vi.mock("@tailwindcss/vite", () => ({
 
 vi.mock("@astrojs/sitemap", () => ({
   default: () => sitemapIntegrationStub,
-}));
-
-vi.mock("@astrojs/react", () => ({
-  default: () => reactIntegrationStub,
 }));
 
 vi.mock("astro-pagefind", () => ({
@@ -95,7 +90,6 @@ describe("astro.config.mjs", () => {
     );
     expect(integrationNames).toEqual([
       "@astrojs/sitemap",
-      "@astrojs/react",
       "astro-pagefind",
       "astro-expressive-code",
     ]);

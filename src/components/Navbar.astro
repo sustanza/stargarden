@@ -2,11 +2,9 @@
 import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
 import Search from "astro-pagefind/components/Search";
-import {
-  MagnifyingGlassIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import MagnifyingGlassIcon from "../assets/icons/magnifying-glass.svg";
+import Bars3Icon from "../assets/icons/bars-3.svg";
+import XMarkIcon from "../assets/icons/x-mark.svg";
 import ThemeToggle from "../components/ThemeToggle.astro";
 ---
 
@@ -25,7 +23,7 @@ import ThemeToggle from "../components/ThemeToggle.astro";
             aria-label="Open sidebar"
             class="btn btn-ghost btn-square"
           >
-            <Bars3Icon className="h-5 w-5" />
+            <Bars3Icon class="h-5 w-5" />
           </label>
         </div>
 
@@ -43,7 +41,7 @@ import ThemeToggle from "../components/ThemeToggle.astro";
             onclick="document.getElementById('search_modal')?.showModal()"
           >
             <!-- Magnifying glass icon -->
-            <MagnifyingGlassIcon className="h-5 w-5" />
+            <MagnifyingGlassIcon class="h-5 w-5" />
           </button>
           <ThemeToggle />
         </div>
@@ -57,7 +55,7 @@ import ThemeToggle from "../components/ThemeToggle.astro";
               class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
               aria-label="Close search"
             >
-              <XMarkIcon className="h-5 w-5" />
+              <XMarkIcon class="h-5 w-5" />
             </button>
           </form>
           <div class="relative">
