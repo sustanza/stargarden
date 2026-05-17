@@ -49,9 +49,6 @@ updates:
       - "github-actions"
     cooldown:
       default-days: 7
-      semver-major-days: 7
-      semver-minor-days: 7
-      semver-patch-days: 7
       include:
         - "*"
     groups:
