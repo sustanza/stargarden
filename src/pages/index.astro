@@ -1,42 +1,61 @@
 ---
-import Landing from '../components/Landing.astro';
-import Layout from '../layouts/Layout.astro';
+import Landing from "../components/Landing.astro";
+import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import { getCollection } from 'astro:content';
-const posts = await getCollection('posts', ({ data }) => !data.draft);
+import { getCollection } from "astro:content";
+const posts = await getCollection("posts", ({ data }) => !data.draft);
 ---
 
-<Layout seo={{ title: "Home", description: "StarGarden – a customizable Astro theme for blogs and content sites." }}>
-	<Landing />
+<Layout
+  seo={{
+    title: "Home",
+    description:
+      "StarGarden – a customizable Astro theme for blogs and content sites.",
+  }}
+>
+  <Landing />
 
-    <!-- Featured Demo Content Section -->
-    <section class="container mx-auto px-4 py-8">
-		<h2 class="text-2xl font-semibold mb-6">Demo: Latest Posts</h2>
-		<p class="mb-4 text-base-content/70">This section lists example content to show how the theme works. Replace or remove this section for your own site.</p>
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-		  {posts
-			.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-			.slice(0, 9)
-			.map(v => (
-			  <a href={`/posts/${v.id}/`} class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-				<figure>
-				  <Image 
-					src={v.data.cover}
-					alt={v.data.title}
-					width={560}
-					height={315}
-					class="w-full h-auto object-cover"
-				  />
-				</figure>
-				<div class="card-body">
-				  <h2 class="card-title">{v.data.title}</h2>
-				  <p class="text-sm text-base-content/70 font-bold">{new Date(v.data.date).toLocaleDateString()}</p>
-				</div>
-			  </a>
-			))}
-		</div>
-		<div class="flex justify-center mt-8">
-		  <a href="/posts/" class="btn btn-primary">See all posts</a>
-		</div>
-	  </section>
+  <!-- Featured Demo Content Section -->
+  <section class="container mx-auto px-4 py-8">
+    <h2 class="mb-6 text-2xl font-semibold">Demo: Latest Posts</h2>
+    <p class="text-base-content/70 mb-4">
+      This section lists example content to show how the theme works. Replace or
+      remove this section for your own site.
+    </p>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        posts
+          .sort(
+            (a, b) =>
+              new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+          )
+          .slice(0, 9)
+          .map((v) => (
+            <a
+              href={`/posts/${v.id}/`}
+              class="card bg-base-100 shadow-xl transition-shadow duration-300 ease-in-out hover:shadow-2xl"
+            >
+              <figure>
+                <Image
+                  src={v.data.cover}
+                  alt={v.data.title}
+                  width={560}
+                  height={315}
+                  class="h-auto w-full object-cover"
+                />
+              </figure>
+              <div class="card-body">
+                <h2 class="card-title">{v.data.title}</h2>
+                <p class="text-base-content/70 text-sm font-bold">
+                  {new Date(v.data.date).toLocaleDateString()}
+                </p>
+              </div>
+            </a>
+          ))
+      }
+    </div>
+    <div class="mt-8 flex justify-center">
+      <a href="/posts/" class="btn btn-primary">See all posts</a>
+    </div>
+  </section>
 </Layout>

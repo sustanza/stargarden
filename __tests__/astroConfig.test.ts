@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from "vitest";
 
 /**
  * Minimal representation of a Vite plugin used inside the Astro config.
@@ -39,59 +39,65 @@ interface AstroConfigShape {
   };
 }
 
-const tailwindPluginStub: PluginStub = { name: '@tailwindcss/vite' };
-const sitemapIntegrationStub: IntegrationStub = { name: '@astrojs/sitemap' };
-const reactIntegrationStub: IntegrationStub = { name: '@astrojs/react' };
-const pagefindIntegrationStub: IntegrationStub = { name: 'astro-pagefind' };
+const tailwindPluginStub: PluginStub = { name: "@tailwindcss/vite" };
+const sitemapIntegrationStub: IntegrationStub = { name: "@astrojs/sitemap" };
+const reactIntegrationStub: IntegrationStub = { name: "@astrojs/react" };
+const pagefindIntegrationStub: IntegrationStub = { name: "astro-pagefind" };
 const expressiveCodeInvocations: ExpressiveCodeOptions[] = [];
 
-vi.mock('astro/config', () => ({
+vi.mock("astro/config", () => ({
   /**
    * Provides an identity version of Astro's defineConfig helper for testing.
    */
-  defineConfig: <TConfig extends AstroConfigShape>(config: TConfig): TConfig => config,
+  defineConfig: <TConfig extends AstroConfigShape>(config: TConfig): TConfig =>
+    config,
 }));
 
-vi.mock('@tailwindcss/vite', () => ({
+vi.mock("@tailwindcss/vite", () => ({
   default: () => tailwindPluginStub,
 }));
 
-vi.mock('@astrojs/sitemap', () => ({
+vi.mock("@astrojs/sitemap", () => ({
   default: () => sitemapIntegrationStub,
 }));
 
-vi.mock('@astrojs/react', () => ({
+vi.mock("@astrojs/react", () => ({
   default: () => reactIntegrationStub,
 }));
 
-vi.mock('astro-pagefind', () => ({
+vi.mock("astro-pagefind", () => ({
   default: () => pagefindIntegrationStub,
 }));
 
-vi.mock('astro-expressive-code', () => ({
+vi.mock("astro-expressive-code", () => ({
   default: (options: ExpressiveCodeOptions) => {
     expressiveCodeInvocations.push(options);
-    return { name: 'astro-expressive-code', options } satisfies IntegrationStub<ExpressiveCodeOptions>;
+    return {
+      name: "astro-expressive-code",
+      options,
+    } satisfies IntegrationStub<ExpressiveCodeOptions>;
   },
 }));
 
 let config: AstroConfigShape;
 
 beforeAll(async () => {
-  const imported = await import('../astro.config.mjs');
+  const imported = await import("../astro.config.mjs");
   config = imported.default as AstroConfigShape;
 });
 
-describe('astro.config.mjs', () => {
-  it('keeps critical site metadata and integrations wired up', () => {
-    expect(config.site).toBe('https://stargarden.pages.dev');
+describe("astro.config.mjs", () => {
+  it("keeps critical site metadata and integrations wired up", () => {
+    expect(config.site).toBe("https://stargarden.pages.dev");
 
-    const integrationNames = config.integrations?.map(integration => integration.name);
+    const integrationNames = config.integrations?.map(
+      (integration) => integration.name,
+    );
     expect(integrationNames).toEqual([
-      '@astrojs/sitemap',
-      '@astrojs/react',
-      'astro-pagefind',
-      'astro-expressive-code',
+      "@astrojs/sitemap",
+      "@astrojs/react",
+      "astro-pagefind",
+      "astro-expressive-code",
     ]);
 
     const vitePlugins = config.vite?.plugins ?? [];
@@ -99,13 +105,13 @@ describe('astro.config.mjs', () => {
     expect(vitePlugins[0]).toBe(tailwindPluginStub);
   });
 
-  it('passes expressive code theme overrides for consistent syntax styling', () => {
+  it("passes expressive code theme overrides for consistent syntax styling", () => {
     expect(expressiveCodeInvocations).toHaveLength(1);
     const [invocation] = expressiveCodeInvocations;
-    expect(invocation.themes).toEqual(['github-dark']);
+    expect(invocation.themes).toEqual(["github-dark"]);
     expect(invocation.styleOverrides).toMatchObject({
-      borderRadius: '0.5rem',
-      frames: { shadowColor: '#124' },
+      borderRadius: "0.5rem",
+      frames: { shadowColor: "#124" },
     });
   });
 });
