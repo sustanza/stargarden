@@ -2,72 +2,22 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import logo from "../assets/logo.svg";
-
-import { SEO } from "astro-seo";
+import BaseHead from "../components/BaseHead.astro";
 
 export interface Props {
-  /** Optional granular SEO overrides coming from .astro pages or components */
-  seo?: {
-    title?: string;
-    description?: string;
-    /** Absolute URL for the OpenGraph image */
-    image?: string;
-    /** Set to true to add a noindex robots directive */
-    noindex?: boolean;
-  };
-  /** Standard front‑matter fields coming from Markdown/MDX pages */
   title?: string;
   description?: string;
+  /** Absolute URL for the OpenGraph / Twitter card image */
+  image?: string;
+  noindex?: boolean;
 }
 
-const defaultDescription = "StarGarden – a customizable Astro theme";
-const logoUrl = new URL(logo.src, Astro.site).href;
-
-// Destructure front‑matter fields as well as the existing `seo` object
-const { seo = {}, title, description } = Astro.props;
-
-/** Merge explicit `seo` overrides with any front‑matter fields.
- *  Values defined in `seo` win over front‑matter, preserving backward compatibility.
- */
-const pageTitle = seo.title ?? title;
-const pageDescription = seo.description ?? description ?? defaultDescription;
-
-/** Build OpenGraph configuration when a page title is available */
-const openGraph = pageTitle
-  ? {
-      basic: {
-        title: pageTitle,
-        type: seo.image ? "article" : "website",
-        image: seo.image ?? logoUrl,
-      },
-      optional: {
-        description: pageDescription,
-        siteName: "StarGarden",
-      },
-      image: {
-        alt: pageTitle,
-        width: 1200,
-        height: 630,
-      },
-    }
-  : undefined;
-
-/** Single props object for the SEO component */
-const seoProps = {
-  title: pageTitle,
-  description: pageDescription,
-  titleTemplate: "%s – StarGarden",
-  titleDefault: "StarGarden Theme",
-  ...(seo.noindex ? { noindex: true, nofollow: true } : {}),
-  ...(openGraph ? { openGraph } : {}),
-};
+const { title, description, image, noindex } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" data-theme="corporate">
   <head>
-    <meta charset="utf-8" />
     <!-- Persisted theme (dark / light) is applied as early as possible -->
     <script is:inline>
       const savedTheme = localStorage.getItem("theme");
@@ -75,29 +25,13 @@ const seoProps = {
         document.documentElement.setAttribute("data-theme", savedTheme);
       }
     </script>
-    <SEO {...seoProps} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      noindex={noindex}
+    />
     <slot name="head" />
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "StarGarden",
-        url: Astro.site,
-        logo: logoUrl,
-        sameAs: ["https://www.youtube.com/@StarGarden"],
-      })}
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Stargarden RSS Feed"
-      href="/rss.xml"
-    />
-    <meta name="generator" content={Astro.generator} />
   </head>
 
   <body

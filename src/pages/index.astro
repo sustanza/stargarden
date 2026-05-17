@@ -7,11 +7,8 @@ const posts = await getCollection("posts", ({ data }) => !data.draft);
 ---
 
 <Layout
-  seo={{
-    title: "Home",
-    description:
-      "StarGarden – a customizable Astro theme for blogs and content sites.",
-  }}
+  title="Home"
+  description="StarGarden – a customizable Astro theme for blogs and content sites."
 >
   <Landing />
 

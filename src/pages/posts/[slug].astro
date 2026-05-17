@@ -16,11 +16,9 @@ const ogImage = new URL(post.data.cover.src, Astro.site).href;
 ---
 
 <Layout
-  seo={{
-    title: post.data.title,
-    description: post.data.description,
-    image: ogImage,
-  }}
+  title={post.data.title}
+  description={post.data.description}
+  image={ogImage}
 >
   <article class="prose mx-auto max-w-2xl">
     <h1>{post.data.title}</h1>
