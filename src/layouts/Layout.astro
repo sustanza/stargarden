@@ -16,12 +16,17 @@ const { title, description, image, noindex } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="corporate">
+<html lang="en">
   <head>
-    <!-- Persisted theme (dark / light) is applied as early as possible -->
+    <!--
+      Persisted theme (dark / light) applied before first paint. When no
+      saved value exists, data-theme is left unset so DaisyUI's CSS-level
+      `--default` and `--prefersdark` modifiers in global.css decide,
+      which honors the OS prefers-color-scheme media query.
+    -->
     <script is:inline>
       const savedTheme = localStorage.getItem("theme");
-      if (savedTheme) {
+      if (savedTheme === "corporate" || savedTheme === "business") {
         document.documentElement.setAttribute("data-theme", savedTheme);
       }
     </script>

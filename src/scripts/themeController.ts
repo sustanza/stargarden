@@ -1,36 +1,53 @@
 /**
- * Theme controller logic for DaisyUI theme switching (TypeScript version).
- * Syncs all .theme-controller checkboxes and persists theme selection in localStorage.
+ * Theme controller logic for DaisyUI theme switching.
+ * Syncs all .theme-controller checkboxes and persists theme selection in
+ * localStorage, falling back to `prefers-color-scheme` on first visit.
  *
- * This file is intended to be imported by Astro components. The function
- * auto‑runs when loaded so you only need:
- *
- *   <script>
- *     import "../scripts/themeController.ts";
- *   </script>
+ * Imported by ThemeToggle.astro; auto-runs when the module loads.
  */
 
+export type DaisyTheme = "corporate" | "business";
+
+/**
+ * Compute the effective theme name given the persisted choice and the OS
+ * preference. Pure function — three branches:
+ *  - saved value wins
+ *  - else, prefers-dark → business
+ *  - else → corporate
+ */
+export function getEffectiveTheme(
+  saved: string | null,
+  prefersDark: boolean,
+): DaisyTheme {
+  if (saved === "corporate" || saved === "business") {
+    return saved;
+  }
+  return prefersDark ? "business" : "corporate";
+}
+
 export function setupThemeController(): void {
-  // Collect every checkbox that controls the theme.
   const controllers =
     document.querySelectorAll<HTMLInputElement>(".theme-controller");
 
-  // Helper to apply a theme and keep all checkboxes in sync.
-  const applyTheme = (theme: string): void => {
+  const applyTheme = (theme: DaisyTheme): void => {
     document.documentElement.setAttribute("data-theme", theme);
     controllers.forEach((cb) => {
       cb.checked = cb.value === theme;
     });
   };
 
-  // Initialise from localStorage (or fall back to "corporate").
-  const savedTheme = localStorage.getItem("theme") ?? "corporate";
-  applyTheme(savedTheme);
+  const saved = localStorage.getItem("theme");
+  const prefersDark =
+    window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
+  applyTheme(getEffectiveTheme(saved, prefersDark));
 
-  // Listen for user changes.
   controllers.forEach((cb) => {
     cb.addEventListener("change", () => {
-      const newTheme = cb.checked ? cb.value : "corporate";
+      // Toggling off snaps back to the explicit `corporate` choice so the
+      // user's deliberate "light mode" decision overrides their OS preference.
+      const newTheme: DaisyTheme = cb.checked
+        ? (cb.value as DaisyTheme)
+        : "corporate";
       localStorage.setItem("theme", newTheme);
       applyTheme(newTheme);
     });

@@ -20,6 +20,7 @@ interface IntegrationStub<TOptions = Record<string, unknown>> {
  */
 interface ExpressiveCodeOptions {
   readonly themes: string[];
+  readonly themeCssSelector?: (theme: { name: string }) => string;
   readonly styleOverrides: {
     readonly borderRadius: string;
     readonly frames: {
@@ -103,10 +104,17 @@ describe("astro.config.mjs", () => {
     expect(vitePlugins[0]).toBe(tailwindPluginStub);
   });
 
-  it("passes expressive code theme overrides for consistent syntax styling", () => {
+  it("pairs light + dark expressive-code themes that switch via DaisyUI data-theme", () => {
     expect(expressiveCodeInvocations).toHaveLength(1);
     const [invocation] = expressiveCodeInvocations;
-    expect(invocation.themes).toEqual(["github-dark"]);
+    expect(invocation.themes).toEqual(["github-light", "github-dark"]);
+    expect(typeof invocation.themeCssSelector).toBe("function");
+    expect(invocation.themeCssSelector!({ name: "github-light" })).toBe(
+      '[data-theme="corporate"]',
+    );
+    expect(invocation.themeCssSelector!({ name: "github-dark" })).toBe(
+      '[data-theme="business"]',
+    );
     expect(invocation.styleOverrides).toMatchObject({
       borderRadius: "0.5rem",
       frames: { shadowColor: "#124" },
