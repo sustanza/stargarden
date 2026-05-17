@@ -23,6 +23,10 @@
     "astro-expressive-code": "^0.42.0",
     "astro-pagefind": "^1.8.6",
     "daisyui": "^5.5.14",
+    "mdast-util-to-string": "^4.0.0",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

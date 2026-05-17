@@ -1,8 +1,19 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-const posts = await getCollection("posts", ({ data }) => !data.draft);
+
+const rawPosts = await getCollection("posts", ({ data }) => !data.draft);
+const posts = await Promise.all(
+  rawPosts.map(async (post) => {
+    const { remarkPluginFrontmatter } = await render(post);
+    return { post, minutesRead: remarkPluginFrontmatter.minutesRead };
+  }),
+);
+posts.sort(
+  (a, b) =>
+    new Date(b.post.data.date).getTime() - new Date(a.post.data.date).getTime(),
+);
 ---
 
 <Layout
@@ -12,31 +23,27 @@ const posts = await getCollection("posts", ({ data }) => !data.draft);
   <h1 class="p-4 text-2xl font-semibold">Posts</h1>
   <div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">
     {
-      posts
-        .sort(
-          (a, b) =>
-            new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
-        )
-        .map((v) => (
-          <a
-            href={`/posts/${v.id}/`}
-            class="card bg-base-100 shadow-xl transition-shadow duration-300 ease-in-out hover:shadow-2xl"
-          >
-            <Image
-              src={v.data.cover}
-              alt={v.data.title}
-              width={560}
-              height={315}
-              class="h-auto w-full object-cover"
-            />
-            <div class="card-body">
-              <h2 class="card-title">{v.data.title}</h2>
-              <p class="text-base-content/70 text-sm">
-                {new Date(v.data.date).toLocaleDateString()}
-              </p>
-            </div>
-          </a>
-        ))
+      posts.map(({ post, minutesRead }) => (
+        <a
+          href={`/posts/${post.id}/`}
+          class="card bg-base-100 shadow-xl transition-shadow duration-300 ease-in-out hover:shadow-2xl"
+        >
+          <Image
+            src={post.data.cover}
+            alt={post.data.title}
+            width={560}
+            height={315}
+            class="h-auto w-full object-cover"
+          />
+          <div class="card-body">
+            <h2 class="card-title">{post.data.title}</h2>
+            <p class="text-base-content/70 text-sm">
+              {new Date(post.data.date).toLocaleDateString()}
+              <span class="text-base-content/60 ml-1">· {minutesRead}</span>
+            </p>
+          </div>
+        </a>
+      ))
     }
   </div>
 </Layout>
