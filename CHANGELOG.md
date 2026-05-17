@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/sustanza/stargarden/compare/v1.8.1...v1.8.2) (2026-05-17)
+
+
+### Bug Fixes
+
+* **ci:** drop unsupported semver-days from github-actions cooldown ([#35](https://github.com/sustanza/stargarden/issues/35)) ([264fa24](https://github.com/sustanza/stargarden/commit/264fa241b387225431ba7c7ac6697450fc4ccf68))
+
 ## [1.8.1](https://github.com/sustanza/stargarden/compare/v1.8.0...v1.8.1) (2026-03-11)
 
 
