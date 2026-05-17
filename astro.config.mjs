@@ -5,8 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
 
-import react from "@astrojs/react";
-
 import astroExpressiveCode from "astro-expressive-code";
 
 import pagefind from "astro-pagefind";
@@ -29,5 +27,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [sitemap(), react(), pagefind(), expressiveCode],
+  integrations: [sitemap(), pagefind(), expressiveCode],
 });

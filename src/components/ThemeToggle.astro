@@ -4,7 +4,8 @@
  * Handles theme persistence, sync, and toggle UI for both mobile and desktop.
  * @component
  */
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import SunIcon from "../assets/icons/sun.svg";
+import MoonIcon from "../assets/icons/moon.svg";
 ---
 
 <!-- Sync theme-controller checkboxes & persist selection -->
@@ -14,6 +15,6 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 <!-- DaisyUI theme toggle switch -->
 <label class="swap swap-rotate cursor-pointer lg:ml-2">
   <input type="checkbox" class="theme-controller" value="business" />
-  <SunIcon className="swap-off h-6 w-6 lg:h-10 lg:w-10" />
-  <MoonIcon className="swap-on h-6 w-6 lg:h-10 lg:w-10" />
+  <SunIcon class="swap-off h-6 w-6 lg:h-10 lg:w-10" />
+  <MoonIcon class="swap-on h-6 w-6 lg:h-10 lg:w-10" />
 </label>
