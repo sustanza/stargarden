@@ -1,0 +1,84 @@
+---
+/**
+ * BaseHead — emits every meta tag a page needs.
+ *
+ * Pattern follows the official Astro blog example
+ * (`withastro/astro/examples/blog/src/components/BaseHead.astro`).
+ *
+ * Emits unconditionally: charset, viewport, favicon, generator, sitemap link,
+ * RSS link, <link rel="canonical">, OpenGraph, Twitter Card, JSON-LD Organization.
+ */
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import logo from "../assets/logo.svg";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  /** Absolute URL for the OpenGraph / Twitter card image */
+  image?: string;
+  /** Adds robots: noindex, nofollow */
+  noindex?: boolean;
+}
+
+const { title, description, image, noindex } = Astro.props;
+
+const pageTitle = title ? `${title} – ${SITE_TITLE}` : SITE_TITLE;
+const pageDescription = description ?? SITE_DESCRIPTION;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const logoUrl = new URL(logo.src, Astro.site).href;
+const ogImage = image ?? logoUrl;
+---
+
+<!-- Global -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`${SITE_TITLE} RSS Feed`}
+  href="/rss.xml"
+/>
+
+<!-- Canonical -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary meta -->
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={pageDescription} />
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content={SITE_TITLE} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDescription} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content={pageTitle} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={pageTitle} />
+<meta property="twitter:description" content={pageDescription} />
+<meta property="twitter:image" content={ogImage} />
+
+<!-- JSON-LD Organization -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE_TITLE,
+    url: Astro.site,
+    logo: logoUrl,
+    sameAs: ["https://www.youtube.com/@StarGarden"],
+  })}
+/>

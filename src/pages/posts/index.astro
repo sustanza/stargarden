@@ -6,10 +6,8 @@ const posts = await getCollection("posts", ({ data }) => !data.draft);
 ---
 
 <Layout
-  seo={{
-    title: "Posts",
-    description: "A collection of blog posts about stars and astronomy.",
-  }}
+  title="Posts"
+  description="A collection of blog posts about stars and astronomy."
 >
   <h1 class="p-4 text-2xl font-semibold">Posts</h1>
   <div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">

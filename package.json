@@ -24,7 +24,6 @@
     "astro": "^6.3.3",
     "astro-expressive-code": "^0.42.0",
     "astro-pagefind": "^1.8.6",
-    "astro-seo": "^1.1.0",
     "daisyui": "^5.5.14",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
