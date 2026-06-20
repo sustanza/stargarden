@@ -18,17 +18,17 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
-    "@tailwindcss/vite": "^4.3.0",
+    "@tailwindcss/vite": "^4.3.1",
     "astro": "^6.4.8",
-    "astro-expressive-code": "^0.42.0",
+    "astro-expressive-code": "^0.43.1",
     "astro-pagefind": "^1.8.6",
-    "daisyui": "^5.5.20",
+    "daisyui": "^5.5.23",
     "markdown-it": "^14.2.0",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
-    "sanitize-html": "^2.17.4",
+    "sanitize-html": "^2.17.5",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
@@ -36,14 +36,14 @@
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
     "@playwright/test": "^1.60.0",
-    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/markdown-it": "^14.1.2",
     "@types/sanitize-html": "^2.16.1",
     "jsdom": "^29.1.1",
-    "prettier": "^3.8.3",
+    "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.7"
+    "vitest": "^4.1.8"
   }
 }
