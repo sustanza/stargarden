@@ -22,7 +22,7 @@
     "astro": "^6.4.8",
     "astro-expressive-code": "^0.44.1",
     "astro-pagefind": "^1.8.6",
-    "daisyui": "^5.7.4",
+    "daisyui": "^5.7.14",
     "markdown-it": "^14.3.0",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
@@ -32,10 +32,10 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
+    "@astrojs/check": "^0.9.10",
     "@commitlint/cli": "^21.2.1",
     "@commitlint/config-conventional": "^21.0.2",
-    "@playwright/test": "^1.62.0",
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/typography": "^0.5.20",
     "@types/markdown-it": "^14.1.2",
     "@types/sanitize-html": "^2.16.1",
