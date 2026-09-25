@@ -25,24 +25,20 @@ const ogImage = page.data.cover
 >
   <div class="flex flex-col items-center">
     <h1 class="mb-4 text-3xl font-bold">{page.data.title}</h1>
-    {
-      page.data.date && (
-        <p class="text-accent mb-4 text-sm font-bold">
-          {page.data.date.toLocaleDateString()}
-        </p>
-      )
-    }
-    {
-      page.data.cover && (
-        <Image
-          src={page.data.cover}
-          alt={page.data.title}
-          width={560}
-          height={315}
-          class="mx-auto my-8 rounded-lg shadow-md"
-        />
-      )
-    }
+    {page.data.date && (
+      <p class="text-accent mb-4 text-sm font-bold">
+        {page.data.date.toLocaleDateString()}
+      </p>
+    )}
+    {page.data.cover && (
+      <Image
+        src={page.data.cover}
+        alt={page.data.title}
+        width={560}
+        height={315}
+        class="mx-auto my-8 rounded-lg shadow-md"
+      />
+    )}
     <div class="prose mx-auto">
       <Content />
     </div>

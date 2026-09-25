@@ -17,7 +17,9 @@ test.describe("navbar interactions", () => {
 
     const searchDialog = page.locator("dialog#search_modal");
     await expect(searchDialog).toHaveJSProperty("open", true);
-    await expect(searchDialog.locator(".pagefind-ui").first()).toBeVisible();
+    await expect(
+      searchDialog.locator("pagefind-searchbox").first(),
+    ).toBeVisible();
 
     await page.keyboard.press("Escape");
     await expect(searchDialog).toHaveJSProperty("open", false);

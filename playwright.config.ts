@@ -31,9 +31,12 @@ export default defineConfig({
     },
   ],
   webServer: {
+    // `--ignore-lock` keeps the server in the foreground. Astro 7 otherwise
+    // auto-backgrounds dev/preview when it detects an AI agent, which makes
+    // Playwright think the web server exited early.
     command: process.env.CI
-      ? `npm run preview -- --host ${HOST} --port ${PORT}`
-      : `npm run dev -- --host ${HOST} --port ${PORT}`,
+      ? `npm run preview -- --host ${HOST} --port ${PORT} --ignore-lock`
+      : `npm run dev -- --host ${HOST} --port ${PORT} --ignore-lock`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     stdout: "pipe",

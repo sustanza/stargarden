@@ -9,6 +9,8 @@ import astroExpressiveCode from "astro-expressive-code";
 
 import pagefind from "astro-pagefind";
 
+import { unified } from "@astrojs/markdown-remark";
+
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
@@ -38,8 +40,15 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   markdown: {
-    remarkPlugins: [remarkReadingTime],
-    rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]],
+    // Astro 7 defaults to the Sätteri processor, which does not run
+    // remark/rehype plugins. Opt into the unified pipeline to keep them.
+    processor: unified({
+      remarkPlugins: [remarkReadingTime],
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: "wrap" }],
+      ],
+    }),
   },
   integrations: [sitemap(), pagefind(), expressiveCode],
 });

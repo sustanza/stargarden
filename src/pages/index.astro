@@ -20,39 +20,39 @@ const posts = await getCollection("posts", ({ data }) => !data.draft);
       remove this section for your own site.
     </p>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        posts
-          .sort(
-            (a, b) =>
-              new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
-          )
-          .slice(0, 9)
-          .map((v) => (
-            <a
-              href={`/posts/${v.id}/`}
-              class="card bg-base-100 shadow-xl transition-shadow duration-300 ease-in-out hover:shadow-2xl"
-            >
-              <figure>
-                <Image
-                  src={v.data.cover}
-                  alt={v.data.title}
-                  width={560}
-                  height={315}
-                  class="h-auto w-full object-cover"
-                />
-              </figure>
-              <div class="card-body">
-                <h2 class="card-title">{v.data.title}</h2>
-                <p class="text-base-content/70 text-sm font-bold">
-                  {new Date(v.data.date).toLocaleDateString()}
-                </p>
-              </div>
-            </a>
-          ))
-      }
+      {posts
+        .sort(
+          (a, b) =>
+            new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+        )
+        .slice(0, 9)
+        .map((v) => (
+          <a
+            href={`/posts/${v.id}/`}
+            class="card bg-base-100 shadow-xl transition-shadow duration-300 ease-in-out hover:shadow-2xl"
+          >
+            <figure>
+              <Image
+                src={v.data.cover}
+                alt={v.data.title}
+                width={560}
+                height={315}
+                class="h-auto w-full object-cover"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{v.data.title}</h2>
+              <p class="text-base-content/70 text-sm font-bold">
+                {new Date(v.data.date).toLocaleDateString()}
+              </p>
+            </div>
+          </a>
+        ))}
     </div>
     <div class="mt-8 flex justify-center">
-      <a href="/posts/" class="btn btn-primary">See all posts</a>
+      <a href="/posts/" class="btn btn-primary">
+        See all posts
+      </a>
     </div>
   </section>
 </Layout>

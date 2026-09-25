@@ -22,10 +22,10 @@ const ogImage = new URL(post.data.cover.src, Astro.site).href;
   <article class="prose mx-auto max-w-2xl">
     <h1>{post.data.title}</h1>
     <p class="mb-4 text-sm font-bold">
-      {post.data.date.toLocaleDateString()}
-      <span class="text-base-content/60 ml-2 font-normal"
-        >· {remarkPluginFrontmatter.minutesRead}</span
-      >
+      {post.data.date.toLocaleDateString()}{" "}
+      <span class="text-base-content/60 ml-2 font-normal">
+        · {remarkPluginFrontmatter.minutesRead}
+      </span>
     </p>
     <Image
       src={post.data.cover}
@@ -37,6 +37,8 @@ const ogImage = new URL(post.data.cover.src, Astro.site).href;
     <Content />
   </article>
   <div class="mt-8 flex justify-center">
-    <a href="/posts/" class="btn btn-primary">Back to all posts</a>
+    <a href="/posts/" class="btn btn-primary">
+      Back to all posts
+    </a>
   </div>
 </Layout>
