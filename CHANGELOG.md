@@ -1,5 +1,39 @@
 # Changelog
 
+## [3.0.0](https://github.com/sustanza/stargarden/compare/v2.0.0...v3.0.0) (2026-09-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* requires Astro 7. Custom .astro markup must be valid HTML for the Rust compiler, whitespace between inline elements is collapsed unless written as {" "}, and search styling now uses Pagefind Component UI --pf-* variables instead of the .pagefind-ui__* classes.
+
+### Features
+
+* upgrade to Astro 7 and update all dependencies ([#121](https://github.com/sustanza/stargarden/issues/121)) ([4c03e52](https://github.com/sustanza/stargarden/commit/4c03e52e5ea96a27f5786ea51abf8ce6e0530963))
+
+
+### Dependencies
+
+* **deps:** bump actions/checkout from 6.0.2 to 6.0.3 in the actions-minor-and-patch group ([#80](https://github.com/sustanza/stargarden/issues/80)) ([aa894a5](https://github.com/sustanza/stargarden/commit/aa894a54080ab25a874d842609a8e17c5152290a))
+* **deps:** bump actions/checkout from 6.0.3 to 7.0.1 ([#96](https://github.com/sustanza/stargarden/issues/96)) ([9ed9477](https://github.com/sustanza/stargarden/commit/9ed9477df537cfdcc6bb19818492407c894619b8))
+* **deps:** bump actions/setup-node from 6.4.0 to 7.0.0 ([#91](https://github.com/sustanza/stargarden/issues/91)) ([cd0da85](https://github.com/sustanza/stargarden/commit/cd0da85d5686c1c7150a2a7a308adabd379b2ea4))
+* **deps:** bump astro from 6.4.2 to 6.4.8 in the npm-security group across 1 directory ([#82](https://github.com/sustanza/stargarden/issues/82)) ([0bfba2e](https://github.com/sustanza/stargarden/commit/0bfba2e771b3cec2a2fb3d373e17bcdfe3c0effb))
+* **deps:** bump daisyui from 5.7.14 to 5.7.16 in the npm-minor-and-patch group ([#105](https://github.com/sustanza/stargarden/issues/105)) ([9b48dfa](https://github.com/sustanza/stargarden/commit/9b48dfa5eea38d5ecd5f31042918e4d42679557e))
+* **deps:** bump daisyui from 5.7.21 to 5.7.22 in the npm-minor-and-patch group ([#111](https://github.com/sustanza/stargarden/issues/111)) ([aa08ead](https://github.com/sustanza/stargarden/commit/aa08ead0c24588c5035050b8d75cd98a711fc1ee))
+* **deps:** bump daisyui from 5.7.28 to 5.7.37 in the npm-minor-and-patch group ([#117](https://github.com/sustanza/stargarden/issues/117)) ([fbd52e0](https://github.com/sustanza/stargarden/commit/fbd52e0fafb1eef33743b7b017332a645912dd9d))
+* **deps:** bump the npm-minor-and-patch group across 1 directory with 10 updates ([#90](https://github.com/sustanza/stargarden/issues/90)) ([dadb1dc](https://github.com/sustanza/stargarden/commit/dadb1dcad5f51eccba2abfcf723560e5a9f66e5d))
+* **deps:** bump the npm-minor-and-patch group across 1 directory with 9 updates ([#86](https://github.com/sustanza/stargarden/issues/86)) ([449df28](https://github.com/sustanza/stargarden/commit/449df284e25f82ed93ae24c4f1302100464d3e0d))
+* **deps:** bump the npm-minor-and-patch group with 2 updates ([#109](https://github.com/sustanza/stargarden/issues/109)) ([de7a2c9](https://github.com/sustanza/stargarden/commit/de7a2c936aa3a6ec395071f6331dd39ed0dd7ca7))
+* **deps:** bump the npm-minor-and-patch group with 3 updates ([#101](https://github.com/sustanza/stargarden/issues/101)) ([d4e7103](https://github.com/sustanza/stargarden/commit/d4e710357ba0bb2eac196d221e262b37fd085273))
+* **deps:** bump the npm-minor-and-patch group with 3 updates ([#97](https://github.com/sustanza/stargarden/issues/97)) ([52fc2dc](https://github.com/sustanza/stargarden/commit/52fc2dc316466d42ed7f0f0a8a58afa2ac553452))
+* **deps:** bump the npm-minor-and-patch group with 4 updates ([#107](https://github.com/sustanza/stargarden/issues/107)) ([60b25a7](https://github.com/sustanza/stargarden/commit/60b25a7ddb8cde2b744eb8aa64478212f9e2b9ea))
+* **deps:** bump the npm-minor-and-patch group with 4 updates ([#114](https://github.com/sustanza/stargarden/issues/114)) ([7bba329](https://github.com/sustanza/stargarden/commit/7bba32921df8adb3fec80df34897dacbfacbf128))
+* **deps:** bump the npm-minor-and-patch group with 4 updates ([#78](https://github.com/sustanza/stargarden/issues/78)) ([5287820](https://github.com/sustanza/stargarden/commit/52878209442f61efc01640cd8accaaf5d99b8c27))
+* **deps:** bump the npm-minor-and-patch group with 4 updates ([#79](https://github.com/sustanza/stargarden/issues/79)) ([ef5d234](https://github.com/sustanza/stargarden/commit/ef5d234f973fe867c6f53ecb200194f16ba4e453))
+* **deps:** bump the npm-minor-and-patch group with 4 updates ([#99](https://github.com/sustanza/stargarden/issues/99)) ([6c2fee5](https://github.com/sustanza/stargarden/commit/6c2fee58be9131f772e7b0caa4434cca901df70c))
+* **deps:** bump the npm-minor-and-patch group with 5 updates ([#92](https://github.com/sustanza/stargarden/issues/92)) ([c93ec2e](https://github.com/sustanza/stargarden/commit/c93ec2ee80213e5bf78b7b70647e9f55ff4daa37))
+* **deps:** bump the npm-security group across 1 directory with 2 updates ([#83](https://github.com/sustanza/stargarden/issues/83)) ([2a1fec0](https://github.com/sustanza/stargarden/commit/2a1fec0e39d20e95f718ccaf3da1213fd462d823))
+
 ## [2.0.0](https://github.com/sustanza/stargarden/compare/v1.8.2...v2.0.0) (2026-05-17)
 
 
