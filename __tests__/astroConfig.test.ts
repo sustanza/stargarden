@@ -40,8 +40,13 @@ interface AstroConfigShape {
     readonly plugins?: PluginStub[];
   };
   readonly markdown?: {
-    readonly remarkPlugins?: ReadonlyArray<unknown>;
-    readonly rehypePlugins?: ReadonlyArray<unknown>;
+    readonly processor?: {
+      readonly name: string;
+      readonly options: {
+        readonly remarkPlugins?: ReadonlyArray<unknown>;
+        readonly rehypePlugins?: ReadonlyArray<unknown>;
+      };
+    };
   };
 }
 
@@ -126,12 +131,15 @@ describe("astro.config.mjs", () => {
     expect(config.prefetch).toBe(true);
   });
 
-  it("wires reading-time and heading-anchor markdown plugins", () => {
-    const remarkPlugins = config.markdown?.remarkPlugins ?? [];
+  it("wires reading-time and heading-anchor plugins into the unified processor", () => {
+    const processor = config.markdown?.processor;
+    expect(processor?.name).toBe("unified");
+
+    const remarkPlugins = processor?.options.remarkPlugins ?? [];
     expect(remarkPlugins).toHaveLength(1);
     expect(typeof remarkPlugins[0]).toBe("function");
 
-    const rehypePlugins = config.markdown?.rehypePlugins ?? [];
+    const rehypePlugins = processor?.options.rehypePlugins ?? [];
     expect(rehypePlugins).toHaveLength(2);
     // rehype-slug entry is the bare plugin function
     expect(typeof rehypePlugins[0]).toBe("function");

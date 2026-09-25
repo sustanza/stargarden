@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
-import Search from "astro-pagefind/components/Search";
+import Search from "astro-pagefind/components/Search.astro";
 import MagnifyingGlassIcon from "../assets/icons/magnifying-glass.svg";
 import Bars3Icon from "../assets/icons/bars-3.svg";
 import XMarkIcon from "../assets/icons/x-mark.svg";
@@ -47,9 +47,7 @@ import ThemeToggle from "../components/ThemeToggle.astro";
         </div>
       </nav>
       <dialog id="search_modal" class="modal">
-        <div
-          class="modal-box relative flex h-[90vh] w-11/12 max-w-2xl flex-col overflow-y-auto"
-        >
+        <div class="modal-box relative flex h-[90vh] w-11/12 max-w-2xl flex-col overflow-y-auto">
           <form method="dialog">
             <button
               class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
@@ -60,9 +58,8 @@ import ThemeToggle from "../components/ThemeToggle.astro";
           </form>
           <div class="relative">
             <Search
-              id="mobile-search"
               className="pagefind-ui mt-8 mb-2 w-full"
-              uiOptions={{ showImages: false }}
+              searchboxOptions={{ "hide-shortcut": true }}
             />
           </div>
         </div>
@@ -71,14 +68,21 @@ import ThemeToggle from "../components/ThemeToggle.astro";
 
     <!-- Slide‑out sidebar -->
     <div class="drawer-side">
-      <label for="nav-drawer" class="drawer-overlay" aria-label="Close sidebar"
+      <label
+        for="nav-drawer"
+        class="drawer-overlay"
+        aria-label="Close sidebar"
       ></label>
       <ul class="menu bg-base-100 min-h-full w-80 p-4">
         <li>
-          <a href="/posts/" class="text-xl font-bold normal-case">Blog</a>
+          <a href="/posts/" class="text-xl font-bold normal-case">
+            Blog
+          </a>
         </li>
         <li>
-          <a href="/about/" class="text-xl font-bold normal-case">About</a>
+          <a href="/about/" class="text-xl font-bold normal-case">
+            About
+          </a>
         </li>
       </ul>
     </div>
@@ -98,18 +102,18 @@ import ThemeToggle from "../components/ThemeToggle.astro";
     <div class="navbar-end">
       <ul class="menu menu-horizontal gap-2">
         <li>
-          <a href="/posts/" class="text-lg font-bold normal-case">Posts</a>
+          <a href="/posts/" class="text-lg font-bold normal-case">
+            Posts
+          </a>
         </li>
         <li>
-          <a href="/about/" class="text-lg font-bold normal-case">About</a>
+          <a href="/about/" class="text-lg font-bold normal-case">
+            About
+          </a>
         </li>
       </ul>
 
-      <Search
-        id="search"
-        className="pagefind-ui"
-        uiOptions={{ showImages: false }}
-      />
+      <Search className="pagefind-ui" />
       <ThemeToggle />
     </div>
   </nav>
