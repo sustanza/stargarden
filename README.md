@@ -12,6 +12,8 @@ Experience StarGarden in orbit at [stargarden.pages.dev](https://stargarden.page
 
 Two launch paths. Pick whichever fits your mission profile.
 
+Requires Node.js 24 or later.
+
 ### Option A — clone via Astro's official starter command
 
 ```bash
@@ -85,6 +87,7 @@ When you fork this template, the handful of files you'll edit first:
 | `npm run build`          | Production build into `dist/`, including Pagefind index                                  |
 | `npm run preview`        | Serve the built `dist/`                                                                  |
 | `npm run preview:search` | Build + preview in one step — use this to test Pagefind search locally                   |
+| `npm run check`          | Type-check `.astro` and TypeScript files with `astro check` — CI gate                    |
 | `npm run test`           | Run Vitest unit tests                                                                    |
 | `npm run test:e2e`       | Run Playwright end-to-end tests (boots dev server)                                       |
 | `npm run test:ci`        | Build then run Playwright against the production preview                                 |
