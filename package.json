@@ -3,12 +3,16 @@
   "type": "module",
   "version": "3.0.0",
   "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "preview:search": "npm run build && astro preview",
     "astro": "astro",
+    "check": "astro check",
     "test": "vitest",
     "test:e2e": "playwright test",
     "test:ci": "npm run build && playwright test",
