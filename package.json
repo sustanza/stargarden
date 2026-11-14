@@ -24,7 +24,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.4.4",
+    "astro": "^7.4.12",
     "astro-expressive-code": "^0.44.3",
     "astro-pagefind": "^2.0.1",
     "daisyui": "^5.7.50",
